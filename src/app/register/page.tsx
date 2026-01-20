@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { RACE_CONFIG } from '@/config/raceConfig';
 
 export const metadata: Metadata = {
     title: 'Register - Bhaag Dilli Bhaag 2026',
@@ -9,48 +11,19 @@ export const metadata: Metadata = {
 };
 
 export default function RegisterPage() {
+    // Use centralized race config
     const categories = [
         {
-            distance: "2 KM",
-            title: "Fun Run",
-            status: "Registrations Open",
-            inclusions: [
-                "Event T-Shirt",
-                "Finisher Medal",
-                "Refreshments",
-                "E-Certificate"
-            ],
-            price: "₹499",
-            bookingUrl: "https://bookingsite.com/2k"
+            ...RACE_CONFIG['2KM'],
+            status: "Registrations Open"
         },
         {
-            distance: "5 KM",
-            title: "Fitness Run",
-            status: "Registrations Open",
-            inclusions: [
-                "Event T-Shirt",
-                "Finisher Medal",
-                "Timed Bib",
-                "Refreshments",
-                "E-Certificate"
-            ],
-            price: "₹699",
-            bookingUrl: "https://bookingsite.com/5k",
-            featured: true
+            ...RACE_CONFIG['5KM'],
+            status: "Registrations Open"
         },
         {
-            distance: "10 KM",
-            title: "Endurance Run",
-            status: "Registrations Open",
-            inclusions: [
-                "Premium Event T-Shirt",
-                "Finisher Medal",
-                "Timed Bib",
-                "Refreshments & Energy Gels",
-                "E-Certificate"
-            ],
-            price: "₹999",
-            bookingUrl: "https://bookingsite.com/10k"
+            ...RACE_CONFIG['10KM'],
+            status: "Registrations Open"
         }
     ];
 
@@ -120,7 +93,7 @@ export default function RegisterPage() {
                                         <div className="mb-6 sm:mb-8 flex-grow">
                                             <h4 className="font-bold text-gray-900 mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wide opacity-80">Included in Ticket:</h4>
                                             <ul className="space-y-3 sm:space-y-4">
-                                                {category.inclusions.map((item, idx) => (
+                                                {category.includes.slice(0, 5).map((item, idx) => (
                                                     <li key={idx} className="flex items-start text-sm transition-all duration-200 group-hover:translate-x-1">
                                                         <div className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 flex-shrink-0 transition-all duration-300 ${category.featured ? 'bg-blue-100 text-blue-700 group-hover:bg-blue-200' : 'bg-gray-100 text-gray-500 group-hover:bg-blue-100 group-hover:text-blue-600'}`}>
                                                             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -136,12 +109,12 @@ export default function RegisterPage() {
                                         {/* Price Section - Pushed to Bottom */}
                                         <div className="mt-auto">
                                             <div className="mb-6 text-center pt-6 border-t border-gray-100">
-                                                <div className={`text-4xl sm:text-5xl font-black tracking-tight transition-all duration-300 ${category.featured ? 'text-blue-900 group-hover:text-blue-800' : 'text-gray-900 group-hover:text-blue-900'}`}>{category.price}</div>
+                                                <div className={`text-4xl sm:text-5xl font-black tracking-tight transition-all duration-300 ${category.featured ? 'text-blue-900 group-hover:text-blue-800' : 'text-gray-900 group-hover:text-blue-900'}`}>₹{category.price}</div>
                                                 <div className="text-gray-400 text-xs font-medium uppercase tracking-wide mt-2">Registration Fee</div>
                                             </div>
 
-                                            {/* CTA Button */}
-                                            <a href={category.bookingUrl} target="_blank" rel="noopener noreferrer" className="block">
+                                            {/* CTA Button - Pass raceKey instead of distance */}
+                                            <Link href={`/register/details?race=${category.raceKey}`} className="block">
                                                 <button className={`w-full ${category.featured
                                                         ? 'bg-blue-900 hover:bg-blue-800 text-white shadow-blue-900/30 hover:shadow-blue-800/50'
                                                         : 'bg-gray-900 hover:bg-blue-900 text-white shadow-gray-900/30 hover:shadow-blue-900/50'
@@ -149,7 +122,7 @@ export default function RegisterPage() {
                                                     BOOK SLOT
                                                     <svg className="w-5 h-5 opacity-70 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                                                 </button>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
