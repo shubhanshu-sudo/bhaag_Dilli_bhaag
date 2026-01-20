@@ -7,16 +7,15 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { getRaceConfig, RACE_CONFIG, type RaceKey } from '@/config/raceConfig';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export default function RegistrationDetailsPage() {
     const router = useRouter();
     const searchParams = useSearchParams();
 
-    // Get race details from config
-    const [raceDetails, setRaceDetails] = useState(() => {
-        const raceParam = searchParams.get('race') || '5KM';
-        return getRaceConfig(raceParam);
-    });
-
+    // Get race details from config - initialize with default
+    const [raceDetails, setRaceDetails] = useState(() => getRaceConfig('5KM'));
     const [showAllIncludes, setShowAllIncludes] = useState(false);
 
     // Form state
@@ -34,10 +33,12 @@ export default function RegistrationDetailsPage() {
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Update race details when URL param changes
+    // Update race details when component mounts or URL param changes
     useEffect(() => {
-        const raceParam = searchParams.get('race') || '5KM';
-        setRaceDetails(getRaceConfig(raceParam));
+        if (searchParams) {
+            const raceParam = searchParams.get('race') || '5KM';
+            setRaceDetails(getRaceConfig(raceParam));
+        }
     }, [searchParams]);
 
     // Handle input change

@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { authUtils } from '@/utils/auth';
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export default function AdminLoginPage() {
     const router = useRouter();
     const [formData, setFormData] = useState({
