@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-28">
+        <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-20 sm:pt-24 lg:pt-28">
 
             {/* 
         ZONE 2: RIGHT IMAGE CANVAS 
@@ -28,7 +28,7 @@ export default function Hero() {
         Added top padding to clear the navbar visual space.
         Pointer events handling for interaction.
       */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 h-full pointer-events-none">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full pointer-events-none">
                 <div className="flex items-center min-h-[85vh]">
 
                     {/* 
@@ -36,36 +36,36 @@ export default function Hero() {
                 Width: 45%
                 Vertically Centered
             */}
-                    <div className="w-full md:w-[60%] lg:w-[45%] py-12 pointer-events-auto">
+                    <div className="w-full lg:w-[60%] xl:w-[45%] py-8 sm:py-12 pointer-events-auto">
 
                         <div className="max-w-xl flex flex-col justify-center">
 
                             {/* Headline - Added top margin for separation from Navbar */}
-                            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 mb-8 mt-12 leading-[1.05] tracking-tight italic">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 sm:mb-8 mt-8 sm:mt-12 leading-[1.05] tracking-tight italic">
                                 Run with <br />
                                 <span className="text-blue-900">North Delhi</span>
                             </h1>
 
                             {/* Subtext */}
-                            <p className="text-lg sm:text-xl text-gray-600 mb-10 font-medium leading-relaxed">
+                            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-10 font-medium leading-relaxed">
                                 Join thousands of runners in the ultimate test of endurance and spirit at Japanese Park.
                             </p>
 
                             {/* Date & Venue Info Block - Aligned & Grouped */}
-                            <div className="flex flex-col gap-4 mb-10 text-gray-800 font-semibold text-lg border-l-4 border-blue-900 pl-6">
+                            <div className="flex flex-col gap-3 sm:gap-4 mb-8 sm:mb-10 text-gray-800 font-semibold text-base sm:text-lg border-l-4 border-blue-900 pl-4 sm:pl-6">
                                 <div className="flex items-center gap-3">
-                                    <span className="uppercase tracking-wider text-sm text-gray-500 w-16">Date</span>
-                                    <span>1st March 2026</span>
+                                    <span className="uppercase tracking-wider text-xs sm:text-sm text-gray-500 w-14 sm:w-16">Date</span>
+                                    <span className="text-sm sm:text-base md:text-lg">1st March 2026</span>
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <span className="uppercase tracking-wider text-sm text-gray-500 w-16">Venue</span>
-                                    <span>Japanese Park, Rohini</span>
+                                    <span className="uppercase tracking-wider text-xs sm:text-sm text-gray-500 w-14 sm:w-16">Venue</span>
+                                    <span className="text-sm sm:text-base md:text-lg">Japanese Park, Rohini</span>
                                 </div>
                             </div>
 
                             {/* CTA Button */}
                             <Link href="/register">
-                                <button className="bg-[#FFF8E7] hover:bg-[#ffeebb] text-yellow-700 font-bold text-xl px-12 py-5 rounded-full shadow-lg border border-yellow-200 transition-all hover:-translate-y-1 hover:shadow-xl w-full sm:w-auto">
+                                <button className="bg-[#FFF8E7] hover:bg-[#ffeebb] text-yellow-700 font-bold text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-full shadow-lg border border-yellow-200 transition-all hover:-translate-y-1 hover:shadow-xl w-full sm:w-auto">
                                     Register Now
                                 </button>
                             </Link>

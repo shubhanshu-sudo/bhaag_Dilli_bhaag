@@ -59,7 +59,7 @@ export default function RegisterPage() {
             <Navbar />
             <main className="min-h-screen">
                 {/* Hero Header */}
-                <section className="relative pt-32 pb-20 bg-gradient-to-br from-blue-800 to-blue-900 overflow-hidden">
+                <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 bg-gradient-to-br from-blue-800 to-blue-900 overflow-hidden">
                     <div className="absolute inset-0 opacity-10">
                         <div className="absolute inset-0" style={{
                             backgroundImage: "url('https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?q=80&w=2074')",
@@ -68,29 +68,29 @@ export default function RegisterPage() {
                         }}></div>
                     </div>
 
-                    <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 text-center text-white">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
                             Bhaag Dilli Bhaag 2026
                         </h1>
-                        <p className="text-xl md:text-2xl text-blue-100 font-light">
+                        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 font-light">
                             2K · 5K · 10K | 1st March 2026 | Japanese Park, Rohini
                         </p>
                     </div>
                 </section>
 
                 {/* Category Selection */}
-                <section className="py-20 bg-gray-50">
-                    <div className="max-w-7xl mx-auto px-6 md:px-8">
-                        <div className="text-center mb-16">
-                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center mb-12 sm:mb-16">
+                            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
                                 Choose Your <span className="text-blue-800">Challenge</span>
                             </h2>
-                            <p className="text-xl text-gray-600 font-light max-w-2xl mx-auto">
+                            <p className="text-base sm:text-lg md:text-xl text-gray-600 font-light max-w-2xl mx-auto px-4">
                                 Select your race category and secure your spot today
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
                             {categories.map((category, index) => (
                                 <div
                                     key={index}
@@ -98,26 +98,26 @@ export default function RegisterPage() {
                                         }`}
                                 >
                                     {/* Header */}
-                                    <div className={`${category.featured ? 'bg-blue-800' : 'bg-white border-b border-gray-100'} p-8 text-center relative`}>
+                                    <div className={`${category.featured ? 'bg-blue-800' : 'bg-white border-b border-gray-100'} p-6 sm:p-8 text-center relative`}>
                                         {category.featured && (
-                                            <div className="absolute top-4 right-4 bg-yellow-400 text-blue-900 text-[10px] font-bold px-3 py-1 rounded-full tracking-wider shadow-sm uppercase">
+                                            <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-yellow-400 text-blue-900 text-[10px] font-bold px-2 sm:px-3 py-1 rounded-full tracking-wider shadow-sm uppercase">
                                                 Most Popular
                                             </div>
                                         )}
-                                        <div className={`text-6xl font-black mb-1 ${category.featured ? 'text-white' : 'text-blue-900'}`}>{category.distance}</div>
-                                        <div className={`text-xl font-bold uppercase tracking-wide mb-3 ${category.featured ? 'text-blue-100' : 'text-gray-500'}`}>{category.title}</div>
+                                        <div className={`text-4xl sm:text-5xl lg:text-6xl font-black mb-1 ${category.featured ? 'text-white' : 'text-blue-900'}`}>{category.distance}</div>
+                                        <div className={`text-lg sm:text-xl font-bold uppercase tracking-wide mb-3 ${category.featured ? 'text-blue-100' : 'text-gray-500'}`}>{category.title}</div>
 
-                                        <div className={`inline-block text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider ${category.featured ? 'bg-blue-700 text-white' : 'bg-green-100 text-green-700'}`}>
+                                        <div className={`inline-block text-xs font-bold px-3 sm:px-4 py-1.5 rounded-full uppercase tracking-wider ${category.featured ? 'bg-blue-700 text-white' : 'bg-green-100 text-green-700'}`}>
                                             {category.status}
                                         </div>
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-8 flex flex-col flex-grow">
+                                    <div className="p-6 sm:p-8 flex flex-col flex-grow">
                                         {/* Inclusions */}
-                                        <div className="mb-8 flex-grow">
-                                            <h4 className="font-bold text-gray-900 mb-5 text-sm uppercase tracking-wide opacity-80">Included in Ticket:</h4>
-                                            <ul className="space-y-4">
+                                        <div className="mb-6 sm:mb-8 flex-grow">
+                                            <h4 className="font-bold text-gray-900 mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wide opacity-80">Included in Ticket:</h4>
+                                            <ul className="space-y-3 sm:space-y-4">
                                                 {category.inclusions.map((item, idx) => (
                                                     <li key={idx} className="flex items-start text-sm">
                                                         <div className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 flex-shrink-0 ${category.featured ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-500'}`}>
@@ -134,7 +134,7 @@ export default function RegisterPage() {
                                         {/* Price Section - Pushed to Bottom */}
                                         <div className="mt-auto">
                                             <div className="mb-6 text-center pt-6 border-t border-gray-100">
-                                                <div className="text-5xl font-black text-gray-900 tracking-tight">{category.price}</div>
+                                                <div className="text-4xl sm:text-5xl font-black text-gray-900 tracking-tight">{category.price}</div>
                                                 <div className="text-gray-400 text-xs font-medium uppercase tracking-wide mt-2">Registration Fee</div>
                                             </div>
 
@@ -155,10 +155,10 @@ export default function RegisterPage() {
                         </div>
 
                         {/* Important Info */}
-                        <div className="mt-20 max-w-4xl mx-auto">
-                            <div className="bg-white rounded-3xl shadow-lg p-10">
-                                <h3 className="font-bold text-gray-900 mb-6 text-2xl text-center">Important Information</h3>
-                                <div className="grid md:grid-cols-2 gap-6">
+                        <div className="mt-12 sm:mt-16 lg:mt-20 max-w-4xl mx-auto">
+                            <div className="bg-white rounded-3xl shadow-lg p-6 sm:p-8 lg:p-10">
+                                <h3 className="font-bold text-gray-900 mb-6 text-xl sm:text-2xl text-center">Important Information</h3>
+                                <div className="grid sm:grid-cols-2 gap-6">
                                     <div className="flex items-start">
                                         <div className="flex-shrink-0 w-10 h-10 bg-blue-100 text-blue-800 rounded-full flex items-center justify-center mr-4">
                                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
