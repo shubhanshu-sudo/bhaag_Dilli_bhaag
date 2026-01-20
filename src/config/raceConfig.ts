@@ -10,7 +10,8 @@ export const RACE_CONFIG = {
             'Finisher Medal',
             'Refreshments',
             'E-Certificate'
-        ]
+        ],
+        featured: false
     },
     '5KM': {
         raceKey: '5KM',
@@ -37,7 +38,8 @@ export const RACE_CONFIG = {
             'Timed Bib',
             'Energy Gels & Refreshments',
             'E-Certificate'
-        ]
+        ],
+        featured: false
     }
 } as const;
 
