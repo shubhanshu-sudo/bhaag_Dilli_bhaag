@@ -11,8 +11,8 @@ export default function Hero() {
       */}
             <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[60%] z-0 h-full">
                 <img
-                    src="https://images.unsplash.com/photo-1530549387789-4c1017266635"
-                    alt="Marathon Runners"
+                    src="/common5.jpg"
+                    alt="Bhaag Dilli Bhaag Marathon Runners"
                     className="w-full h-full object-cover object-center"
                 />
                 {/* 

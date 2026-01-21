@@ -9,11 +9,11 @@ export default function About() {
                     {/* Left: Image/Collage */}
                     <div className="relative order-2 lg:order-1">
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] transform rotate-1 hover:rotate-0 transition-all duration-500">
-                            {/* Using the specific About image from prompt guidelines if available, else a relevant running crowd shot */}
+                            {/* Using local image from public folder */}
                             <div
                                 className="absolute inset-0 bg-cover bg-center"
                                 style={{
-                                    backgroundImage: "url('https://images.unsplash.com/photo-1571008887538-b36bb32f4571?q=80&w=2070')"
+                                    backgroundImage: "url('/about-image.png')"
                                 }}
                             ></div>
                             <div className="absolute inset-0 bg-blue-900/10"></div>
@@ -24,7 +24,7 @@ export default function About() {
 
                     {/* Right: Content */}
                     <div className="order-1 lg:order-2">
-                        <h4 className="text-blue-600 font-bold uppercase tracking-wider mb-2 text-xs sm:text-sm">Organized by Round Table India 313</h4>
+
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-blue-900 mb-6 sm:mb-8 leading-tight">
                             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">Bhaag Dilli Bhaag</span>
                         </h2>
