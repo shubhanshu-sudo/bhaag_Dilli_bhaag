@@ -8,8 +8,11 @@ export default function Route() {
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-blue-900 italic tracking-tight mb-4 sm:mb-6">
                             The Route
                         </h2>
-                        <p className="text-base sm:text-lg text-gray-600 font-light leading-relaxed mb-6 sm:mb-8">
-                            Experience a perfectly designed course around Japanese Park (Swarn Jayanti Park). The flat terrain and scenic greenery make it the perfect ground for achieving your personal best.
+                        <p className="text-base sm:text-lg text-gray-600 font-light leading-relaxed mb-4 sm:mb-5">
+                            Set within Japanese Park, Rohini, the course offers a calm, green, and runner-friendly environment. Wide paths and flat terrain make it ideal for both new runners and those chasing personal milestones.
+                        </p>
+                        <p className="text-base sm:text-lg text-gray-600 font-medium leading-relaxed mb-6 sm:mb-8 italic">
+                            Every step you take here is part of a larger journey beyond the park.
                         </p>
 
                         <div className="space-y-4 sm:space-y-6">

@@ -42,13 +42,17 @@ export default function Hero() {
 
                             {/* Headline - Added top margin for separation from Navbar */}
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 sm:mb-8 mt-8 sm:mt-12 leading-[1.05] tracking-tight italic">
-                                Run with <br />
-                                <span className="text-blue-900">North Delhi</span>
+                                Bhaag Dilli Bhaag <br />
+                                <span className="text-blue-900">Marathon</span>
                             </h1>
 
                             {/* Subtext */}
-                            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-10 font-medium leading-relaxed">
-                                Join thousands of runners in the ultimate test of endurance and spirit at Japanese Park.
+                            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-5 font-medium leading-relaxed">
+                                Run with heart. Run for education.
+                            </p>
+
+                            <p className="text-sm sm:text-base text-gray-600 mb-8 sm:mb-10 font-normal leading-relaxed">
+                                Every step you take helps build classrooms and open doors for underprivileged children.
                             </p>
 
                             {/* Date & Venue Info Block - Aligned & Grouped */}

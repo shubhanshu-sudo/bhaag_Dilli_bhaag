@@ -24,20 +24,24 @@ export default function About() {
 
                     {/* Right: Content */}
                     <div className="order-1 lg:order-2">
-                        <h4 className="text-blue-600 font-bold uppercase tracking-wider mb-2 text-xs sm:text-sm">Organized by Round Table India</h4>
+                        <h4 className="text-blue-600 font-bold uppercase tracking-wider mb-2 text-xs sm:text-sm">Organized by Round Table India 313</h4>
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-blue-900 mb-6 sm:mb-8 leading-tight">
                             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">Bhaag Dilli Bhaag</span>
                         </h2>
 
                         <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-gray-600 font-light leading-relaxed">
                             <p>
-                                Bhaag Dilli Bhaag is North Delhi&apos;s premier purpose-driven marathon, bringing together runners of all levels to celebrate fitness, community, and social impact.
+                                Bhaag Dilli Bhaag was born from a simple belief that when people come together with intention, real change begins.
                             </p>
                             <p>
-                                Our mission is simple: <span className="font-semibold text-blue-800">Adopt · Adapt · Improve</span>. We aim to create a world-class running experience that not only challenges your physical limits but also contributes to a greater cause.
+                                This marathon brings runners, families, and communities together for a shared purpose. What starts as a race becomes a story of hope, effort, and collective responsibility toward a better future for underprivileged children.
                             </p>
                             <p>
-                                Every stride you take supports the <span className="font-semibold text-blue-800">Freedom Through Education</span> initiative, empowering underprivileged children with access to quality education. Join us in making a tangible difference, one step at a time.
+                                Organized by Round Table India 313, Bhaag Dilli Bhaag supports the larger vision of <span className="font-semibold text-blue-800">Freedom Through Education</span>. The initiative focuses on building schools and strengthening classroom infrastructure, helping create safe and supportive spaces where children can learn, grow, and dream beyond their circumstances.
+                            </p>
+                            <p className="font-medium text-gray-700 italic">
+                                This run is not about how fast you finish.<br />
+                                It is about why you start.
                             </p>
                         </div>
 

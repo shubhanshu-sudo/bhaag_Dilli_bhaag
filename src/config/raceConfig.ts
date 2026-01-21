@@ -6,10 +6,10 @@ export const RACE_CONFIG = {
         distance: '2 KM',
         price: 499,
         includes: [
-            'Event T-Shirt',
             'Finisher Medal',
-            'Refreshments',
-            'E-Certificate'
+            'Goodie Bag',
+            'Hydration Support',
+            'Medical Support'
         ],
         featured: false
     },
@@ -19,11 +19,10 @@ export const RACE_CONFIG = {
         distance: '5 KM',
         price: 699,
         includes: [
-            'Event T-Shirt',
             'Finisher Medal',
-            'Timed Bib',
-            'Refreshments',
-            'E-Certificate'
+            'Goodie Bag',
+            'Hydration Support',
+            'Medical Support'
         ],
         featured: true
     },
@@ -33,11 +32,11 @@ export const RACE_CONFIG = {
         distance: '10 KM',
         price: 999,
         includes: [
-            'Premium Event T-Shirt',
             'Finisher Medal',
-            'Timed Bib',
-            'Energy Gels & Refreshments',
-            'E-Certificate'
+            'Goodie Bag',
+            'Hydration Support',
+            'Medical Support',
+            'Timing Chip (RFID)'
         ],
         featured: false
     }

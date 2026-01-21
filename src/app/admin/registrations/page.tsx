@@ -14,6 +14,7 @@ interface Registration {
     email: string;
     phone: string;
     race: string;
+    tshirtSize: string;
     amount: number;
     paymentStatus: string;
     createdAt: string;

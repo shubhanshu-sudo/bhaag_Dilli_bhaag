@@ -30,6 +30,7 @@ export function RegistrationDetailsContent() {
         phone: '',
         gender: '',
         dob: '',
+        tshirtSize: '',
         emergencyName: '',
         emergencyPhone: ''
     });
@@ -134,6 +135,13 @@ export function RegistrationDetailsContent() {
             }
         }
 
+        // T-Shirt Size Validation
+        if (!formData.tshirtSize) {
+            newErrors.tshirtSize = 'Please select your t-shirt size';
+        } else if (!['XS', 'S', 'M', 'L', 'XL', 'XXL'].includes(formData.tshirtSize)) {
+            newErrors.tshirtSize = 'Please select a valid t-shirt size';
+        }
+
         // Emergency Contact Name Validation
         const emergencyNameValue = formData.emergencyName.trim();
         if (!emergencyNameValue) {
@@ -181,6 +189,7 @@ export function RegistrationDetailsContent() {
                 email: formData.email,
                 phone: formData.phone,
                 race: raceDetails.raceKey,
+                tshirtSize: formData.tshirtSize,
                 amount: raceDetails.price,
                 // Additional data for future use
                 gender: formData.gender,
@@ -434,6 +443,32 @@ export function RegistrationDetailsContent() {
                                         <p className="mt-1 text-sm text-red-600">{errors.dob}</p>
                                     )}
                                 </div>
+                            </div>
+
+                            {/* T-Shirt Size */}
+                            <div>
+                                <label htmlFor="tshirtSize" className="block text-sm font-semibold text-gray-700 mb-2">
+                                    T-Shirt Size <span className="text-red-500">*</span>
+                                </label>
+                                <select
+                                    id="tshirtSize"
+                                    name="tshirtSize"
+                                    value={formData.tshirtSize}
+                                    onChange={handleChange}
+                                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all ${errors.tshirtSize ? 'border-red-500' : 'border-gray-300'
+                                        }`}
+                                >
+                                    <option value="">Select Size</option>
+                                    <option value="XS">XS - Extra Small</option>
+                                    <option value="S">S - Small</option>
+                                    <option value="M">M - Medium</option>
+                                    <option value="L">L - Large</option>
+                                    <option value="XL">XL - Extra Large</option>
+                                    <option value="XXL">XXL - Double XL</option>
+                                </select>
+                                {errors.tshirtSize && (
+                                    <p className="mt-1 text-sm text-red-600">{errors.tshirtSize}</p>
+                                )}
                             </div>
 
                             {/* Emergency Contact Section */}

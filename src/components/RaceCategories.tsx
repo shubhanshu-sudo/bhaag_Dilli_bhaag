@@ -5,20 +5,20 @@ export default function RaceCategories() {
         {
             distance: "2 KM",
             title: "Fun Run",
-            description: "A perfect introduction to running for families, kids, and beginners. Join the fun and feel the energy of the community without the pressure of timing.",
-            age: "Open to all ages"
+            description: "A joyful, untimed run for families and first-time runners. Run together, smile together, and be part of a community that moves for education and hope.",
+            age: "10 years and above"
         },
         {
             distance: "5 KM",
             title: "Fitness Run",
-            description: "Challenge your limits with our popular timed 5K category. Ideal for recreational runners looking to set a personal benchmark in a supportive environment.",
-            age: "12 years & above"
+            description: "A timed run for those ready to challenge themselves while running for a meaningful cause. Push your limits and support Round Table India's Freedom Through Education mission.",
+            age: "10 years and above"
         },
         {
             distance: "10 KM",
             title: "Endurance Run",
-            description: "The ultimate test of speed and endurance. A professionally timed race on a flat, fast course designed for serious runners aiming for a Personal Best.",
-            age: "16 years & above"
+            description: "A professionally timed run for experienced runners who believe in discipline, strength, and purpose. Test your endurance while standing for a future built on education.",
+            age: "15 years and above"
         }
     ];
 

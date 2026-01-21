@@ -36,10 +36,14 @@ export default function Partners() {
                 <div className="max-w-md sm:max-w-2xl lg:max-w-4xl mx-auto">
                     <div className="bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl sm:rounded-3xl py-12 px-6 sm:py-14 sm:px-10 lg:py-16 lg:px-16 text-center shadow-2xl">
                         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4 sm:mb-5 leading-tight">
-                            Unlock Your Ultimate Race Experience!
+                            Be Part of Something That Matters
                         </h2>
-                        <p className="text-blue-100 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 max-w-xl mx-auto font-light leading-relaxed">
-                            Join thousands of runners and make history at North Delhi's biggest running event.
+                        <p className="text-blue-100 text-sm sm:text-base lg:text-lg mb-4 sm:mb-5 max-w-xl mx-auto font-light leading-relaxed">
+                            Join a community of runners who believe that effort, when shared, can create change. When you run Bhaag Dilli Bhaag, you run with purpose, compassion, and hope.
+                        </p>
+                        <p className="text-white text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-lg mx-auto font-medium leading-relaxed italic">
+                            Come run for education.<br />
+                            Come run for the future.
                         </p>
                         <Link href="/register">
                             <button className="bg-white text-blue-900 font-bold text-sm sm:text-base px-8 sm:px-10 py-3.5 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 w-full max-w-[280px] sm:max-w-xs mx-auto">
