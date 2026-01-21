@@ -57,7 +57,7 @@ export default function TermsAndConditionsPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Registration</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         Registrations are accepted online only and are subject to availability and confirmation. All information provided must be accurate. The organizers reserve the right to reject or cancel any registration found to be incorrect or incomplete.
                                     </p>
                                 </div>
@@ -70,7 +70,7 @@ export default function TermsAndConditionsPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Eligibility</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         Participants must meet the minimum age criteria for their selected race category. Underage participants must submit valid parental or guardian consent. Age and identity may be verified.
                                     </p>
                                 </div>
@@ -83,7 +83,7 @@ export default function TermsAndConditionsPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Registration Fees</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         All registration fees are non-refundable, non-transferable, and non-deferrable. In case of non-participation, the fee will not be refunded.
                                     </p>
                                 </div>
@@ -96,7 +96,7 @@ export default function TermsAndConditionsPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Event Changes</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         The organizers reserve the right to modify the event date, venue, route, or schedule due to weather conditions, government guidelines, or safety considerations. No refunds will be issued in case of changes or cancellation.
                                     </p>
                                 </div>
@@ -109,7 +109,7 @@ export default function TermsAndConditionsPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Bib and Race Kit</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         Race bibs must be collected during the official bib distribution period with valid photo ID and registration confirmation. Bibs are non-transferable. Authorized representatives may collect bibs with proper documentation.
                                     </p>
                                 </div>
@@ -122,7 +122,7 @@ export default function TermsAndConditionsPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Health and Safety</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         Participants confirm that they are medically fit to participate and understand that running involves physical risk. Medical and safety support will be provided, but participation is at the runner's own risk.
                                     </p>
                                 </div>
@@ -135,7 +135,7 @@ export default function TermsAndConditionsPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Conduct</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         Participants must follow all instructions issued by race officials, volunteers, and medical staff. Unsporting or unsafe behavior may result in disqualification.
                                     </p>
                                 </div>
@@ -148,7 +148,7 @@ export default function TermsAndConditionsPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Timing and Results</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         Timing will be recorded using official timing systems for applicable categories. Results are provisional and subject to verification.
                                     </p>
                                 </div>
@@ -161,7 +161,7 @@ export default function TermsAndConditionsPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Media Consent</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         Participants consent to the use of photographs and videos taken during the event for promotional and communication purposes without compensation.
                                     </p>
                                 </div>
@@ -174,7 +174,7 @@ export default function TermsAndConditionsPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Liability</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         To the extent permitted under Indian law, the organizers, sponsors, and partners shall not be liable for any injury, loss, damage, or death arising from participation. Liability, if any, shall be limited to the registration fee paid.
                                     </p>
                                 </div>
@@ -187,7 +187,7 @@ export default function TermsAndConditionsPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Governing Law</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         These terms are governed by the laws of India and subject to the jurisdiction of courts in Delhi.
                                     </p>
                                 </div>

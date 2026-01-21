@@ -139,9 +139,9 @@ export default function RegisterPage() {
                         <div className="mt-12 sm:mt-16 lg:mt-20 max-w-4xl mx-auto">
                             <div className="bg-white rounded-3xl shadow-lg p-8 sm:p-10 lg:p-12">
                                 <h3 className="font-bold text-gray-900 mb-10 text-2xl sm:text-3xl text-center">Important Information</h3>
-                                <div className="grid sm:grid-cols-2 gap-x-12 gap-y-12">
+                                <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8 sm:gap-y-12">
                                     <div className="flex items-center">
-                                        <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 mr-6 sm:mr-8 relative hover:rotate-6 transition-transform duration-300">
+                                        <div className="flex-shrink-0 w-14 h-14 sm:w-20 lg:w-24 sm:h-20 lg:h-24 mr-4 sm:mr-6 lg:mr-8 relative hover:rotate-6 transition-transform duration-300">
                                             <Image
                                                 src="/Icon Registration Deadline.png"
                                                 alt="Registration Deadline"
@@ -150,13 +150,13 @@ export default function RegisterPage() {
                                             />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-gray-900 text-lg sm:text-xl mb-1">Registration Deadline</h4>
-                                            <p className="text-gray-600 text-sm sm:text-base font-light leading-snug">Registrations open until 25th Feb 2026 or until slots fill.</p>
+                                            <h4 className="font-bold text-gray-900 text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1">Registration Deadline</h4>
+                                            <p className="text-gray-600 text-[13px] sm:text-sm lg:text-base font-light leading-tight sm:leading-snug">Registrations open until 25th Feb 2026 or until slots fill.</p>
                                         </div>
                                     </div>
 
                                     <div className="flex items-center">
-                                        <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 mr-6 sm:mr-8 relative hover:rotate-6 transition-transform duration-300">
+                                        <div className="flex-shrink-0 w-14 h-14 sm:w-20 lg:w-24 sm:h-20 lg:h-24 mr-4 sm:mr-6 lg:mr-8 relative hover:rotate-6 transition-transform duration-300">
                                             <Image
                                                 src="/Icon Age Requirement.png"
                                                 alt="Age Eligibility"
@@ -165,13 +165,13 @@ export default function RegisterPage() {
                                             />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-gray-900 text-lg sm:text-xl mb-1">Age Eligibility</h4>
-                                            <p className="text-gray-600 text-sm sm:text-base font-light leading-snug">Participants must meet the minimum age criteria for each category.</p>
+                                            <h4 className="font-bold text-gray-900 text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1">Age Eligibility</h4>
+                                            <p className="text-gray-600 text-[13px] sm:text-sm lg:text-base font-light leading-tight sm:leading-snug">Participants must meet the minimum age criteria for each category.</p>
                                         </div>
                                     </div>
 
                                     <div className="flex items-center">
-                                        <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 mr-6 sm:mr-8 relative hover:rotate-6 transition-transform duration-300">
+                                        <div className="flex-shrink-0 w-14 h-14 sm:w-20 lg:w-24 sm:h-20 lg:h-24 mr-4 sm:mr-6 lg:mr-8 relative hover:rotate-6 transition-transform duration-300">
                                             <Image
                                                 src="/Icon Tshirt size 2.png"
                                                 alt="T-Shirt Size"
@@ -180,13 +180,13 @@ export default function RegisterPage() {
                                             />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-gray-900 text-lg sm:text-xl mb-1">T-Shirt Size</h4>
-                                            <p className="text-gray-600 text-sm sm:text-base font-light leading-snug">Select your preferred size during the registration process.</p>
+                                            <h4 className="font-bold text-gray-900 text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1">T-Shirt Size</h4>
+                                            <p className="text-gray-600 text-[13px] sm:text-sm lg:text-base font-light leading-tight sm:leading-snug">Select your preferred size during the registration process.</p>
                                         </div>
                                     </div>
 
                                     <div className="flex items-center">
-                                        <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 mr-6 sm:mr-8 relative hover:rotate-6 transition-transform duration-300">
+                                        <div className="flex-shrink-0 w-14 h-14 sm:w-20 lg:w-24 sm:h-20 lg:h-24 mr-4 sm:mr-6 lg:mr-8 relative hover:rotate-6 transition-transform duration-300">
                                             <Image
                                                 src="/Icon RaceDayPhotos.png"
                                                 alt="Why This Run Matters"
@@ -195,8 +195,8 @@ export default function RegisterPage() {
                                             />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-gray-900 text-lg sm:text-xl mb-1">Why This Run Matters</h4>
-                                            <p className="text-gray-600 text-sm sm:text-base font-light leading-snug">Your run directly supports Freedom Through Education projects.</p>
+                                            <h4 className="font-bold text-gray-900 text-base sm:text-lg lg:text-xl mb-0.5 sm:mb-1">Why This Run Matters</h4>
+                                            <p className="text-gray-600 text-[13px] sm:text-sm lg:text-base font-light leading-tight sm:leading-snug">Your run directly supports Freedom Through Education projects.</p>
                                         </div>
                                     </div>
                                 </div>

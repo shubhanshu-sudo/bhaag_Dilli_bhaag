@@ -29,7 +29,7 @@ export default function About() {
                             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">Bhaag Dilli Bhaag</span>
                         </h2>
 
-                        <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-gray-600 font-light leading-relaxed">
+                        <div className="space-y-4 sm:space-y-6 text-sm sm:text-base lg:text-lg text-gray-600 font-light leading-relaxed">
                             <p>
                                 Bhaag Dilli Bhaag was born from a simple belief that when people come together with intention, real change begins.
                             </p>
@@ -37,9 +37,9 @@ export default function About() {
                                 This marathon brings runners, families, and communities together for a shared purpose. What starts as a race becomes a story of hope, effort, and collective responsibility toward a better future for underprivileged children.
                             </p>
                             <p>
-                                Organized by Round Table India 313, Bhaag Dilli Bhaag supports the larger vision of <span className="font-semibold text-blue-800">Freedom Through Education</span>. The initiative focuses on building schools and strengthening classroom infrastructure, helping create safe and supportive spaces where children can learn, grow, and dream beyond their circumstances.
+                                Organized by Round Table India 313, Bhaag Dilli Bhaag supports the larger vision of <span className="font-semibold text-blue-800">Freedom Through Education</span>. The initiative focuses on building schools and strengthening classroom infrastructure, helping create safe and supportive spaces where children can learn, grow, and dream.
                             </p>
-                            <p className="font-medium text-gray-700 italic">
+                            <p className="font-medium text-gray-700 italic border-l-4 border-blue-100 pl-4 py-1">
                                 This run is not about how fast you finish.<br />
                                 It is about why you start.
                             </p>

@@ -127,16 +127,16 @@ export default function FAQPage() {
                                         <div className="flex items-start gap-3 sm:gap-4 flex-1">
                                             {/* Question Number Badge */}
                                             <div className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-300 ${openIndex === index
-                                                    ? 'bg-blue-600 text-white scale-110'
-                                                    : 'bg-blue-100 text-blue-600 group-hover:bg-blue-200'
+                                                ? 'bg-blue-600 text-white scale-110'
+                                                : 'bg-blue-100 text-blue-600 group-hover:bg-blue-200'
                                                 }`}>
                                                 {index + 1}
                                             </div>
 
                                             {/* Question Text */}
                                             <span className={`font-semibold text-sm sm:text-base lg:text-lg pr-2 transition-colors duration-300 ${openIndex === index
-                                                    ? 'text-blue-900'
-                                                    : 'text-gray-900 group-hover:text-blue-800'
+                                                ? 'text-blue-900'
+                                                : 'text-gray-900 group-hover:text-blue-800'
                                                 }`}>
                                                 {faq.question}
                                             </span>
@@ -144,13 +144,13 @@ export default function FAQPage() {
 
                                         {/* Chevron Icon */}
                                         <div className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index
-                                                ? 'bg-blue-600 rotate-180'
-                                                : 'bg-gray-100 group-hover:bg-blue-100'
+                                            ? 'bg-blue-600 rotate-180'
+                                            : 'bg-gray-100 group-hover:bg-blue-100'
                                             }`}>
                                             <svg
                                                 className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-300 ${openIndex === index
-                                                        ? 'text-white'
-                                                        : 'text-gray-600 group-hover:text-blue-600'
+                                                    ? 'text-white'
+                                                    : 'text-gray-600 group-hover:text-blue-600'
                                                     }`}
                                                 fill="none"
                                                 stroke="currentColor"
@@ -169,13 +169,13 @@ export default function FAQPage() {
                                     {/* Answer Section with Smooth Animation */}
                                     <div
                                         className={`transition-all duration-500 ease-in-out ${openIndex === index
-                                                ? 'max-h-[500px] opacity-100'
-                                                : 'max-h-0 opacity-0'
+                                            ? 'max-h-[500px] opacity-100'
+                                            : 'max-h-0 opacity-0'
                                             } overflow-hidden`}
                                     >
-                                        <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-2">
-                                            <div className="pl-11 sm:pl-14 pr-2">
-                                                <div className="text-gray-700 text-sm sm:text-base leading-relaxed whitespace-pre-line border-l-2 border-blue-200 pl-4 py-2">
+                                        <div className="px-4 sm:px-6 pb-5 sm:pb-6 pt-2">
+                                            <div className="pl-1 sm:pl-14 pr-2">
+                                                <div className="text-gray-700 text-sm sm:text-base leading-relaxed whitespace-pre-line border-l-2 border-blue-200 pl-4 py-1 sm:py-2">
                                                     {faq.answer}
                                                 </div>
                                             </div>

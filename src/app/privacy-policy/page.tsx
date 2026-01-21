@@ -57,7 +57,7 @@ export default function PrivacyPolicyPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Information We Collect</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         We may collect basic personal details such as name, contact information, age, emergency contact details, and event-related photographs or videos.
                                     </p>
                                 </div>
@@ -70,7 +70,7 @@ export default function PrivacyPolicyPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">How We Use Your Information</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         Your information is used only for event administration, participant communication, safety management, race results, certificates, and awareness activities related to the event.
                                     </p>
                                 </div>
@@ -83,7 +83,7 @@ export default function PrivacyPolicyPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Data Sharing</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         We do not sell or trade participant data. Information may be shared only with authorized partners for event operations or when required by law.
                                     </p>
                                 </div>
@@ -96,7 +96,7 @@ export default function PrivacyPolicyPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Data Protection</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         Reasonable security measures are in place to protect your data. While we strive to safeguard all information, complete security cannot be guaranteed.
                                     </p>
                                 </div>
@@ -109,7 +109,7 @@ export default function PrivacyPolicyPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Consent</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         By registering for the event, you consent to the collection and use of your information as outlined in this policy.
                                     </p>
                                 </div>
@@ -122,7 +122,7 @@ export default function PrivacyPolicyPage() {
                                         </div>
                                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Policy Updates</h2>
                                     </div>
-                                    <p className="text-gray-700 leading-relaxed pl-11 text-sm sm:text-base">
+                                    <p className="text-gray-700 leading-relaxed pl-2 sm:pl-11 text-sm sm:text-base">
                                         This Privacy Policy may be updated from time to time. Any changes will be reflected on the website.
                                     </p>
                                 </div>
