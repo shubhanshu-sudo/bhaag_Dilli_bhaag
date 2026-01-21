@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { authUtils } from '@/utils/auth';
+import { API_ENDPOINTS } from '@/config/api';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -13,7 +14,6 @@ interface Registration {
     email: string;
     phone: string;
     race: string;
-    tshirtSize: string;
     amount: number;
     paymentStatus: string;
     createdAt: string;
@@ -53,8 +53,7 @@ export default function AdminRegistrationsPage() {
         setError('');
 
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000';
-            const response = await fetch(`${apiUrl}/api/admin/registrations`, {
+            const response = await fetch(API_ENDPOINTS.ADMIN.REGISTRATIONS, {
                 headers: {
                     ...authUtils.getAuthHeader()
                 }

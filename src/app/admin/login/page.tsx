@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { authUtils } from '@/utils/auth';
+import { API_ENDPOINTS } from '@/config/api';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -37,8 +38,7 @@ export default function AdminLoginPage() {
         setIsLoading(true);
 
         try {
-            const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000';
-            const response = await fetch(`${apiUrl}/api/admin/login`, {
+            const response = await fetch(API_ENDPOINTS.ADMIN.LOGIN, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
