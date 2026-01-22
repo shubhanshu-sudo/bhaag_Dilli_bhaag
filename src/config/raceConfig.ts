@@ -30,7 +30,7 @@ export const RACE_CONFIG = {
         raceKey: '10KM',
         title: 'Endurance Run',
         distance: '10 KM',
-        price: 999,
+        price: 1199,
         includes: [
             'Finisher Medal',
             'Goodie Bag',

@@ -35,7 +35,7 @@ includes: [
 ```
 **NO Timing Chip** ❌
 
-#### **10 KM - Endurance Run** (₹999)
+#### **10 KM - Endurance Run** (₹1199)
 ```typescript
 includes: [
     'Finisher Medal',
@@ -116,7 +116,7 @@ const raceDetails = getRaceConfig(selectedRace);
   "email": "john@example.com",
   "phone": "9876543210",
   "race": "10KM",  // Race category determines inclusions
-  "amount": 999,
+  "amount": 1199,
   "includes": [
     "Finisher Medal",
     "Goodie Bag",
