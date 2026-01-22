@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
+    <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-center pointer-events-none">
       <div
         className="
           pointer-events-auto
@@ -24,7 +24,7 @@ export default function Navbar() {
         "
       >
         {/* Brand */}
-        <Link href="/" className="flex-shrink-0 flex items-center gap-2 sm:gap-3">
+        <Link href="/" className="flex-shrink-0 flex items-center gap-2 sm:gap-3 z-10">
           <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-900 rounded-lg flex items-center justify-center text-white font-black text-xs">
             BDB
           </div>
@@ -63,7 +63,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden p-2 text-blue-900 hover:bg-blue-50 rounded-lg transition-colors"
+          className="lg:hidden p-2 text-blue-900 hover:bg-blue-50 rounded-lg transition-colors z-10 relative"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? (
@@ -103,7 +103,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
-        <div className="lg:hidden absolute top-[calc(100%+0.5rem)] left-4 right-4 bg-white rounded-xl shadow-xl border border-blue-50 overflow-hidden pointer-events-auto">
+        <div className="lg:hidden absolute top-[calc(100%+0.5rem)] left-4 right-4 bg-white rounded-xl shadow-xl border border-blue-50 overflow-hidden pointer-events-auto z-[90]">
           <div className="flex flex-col">
             <Link
               href="/"

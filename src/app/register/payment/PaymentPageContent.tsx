@@ -168,23 +168,33 @@ export function PaymentPageContent() {
                 <div className="max-w-2xl mx-auto">
                     {/* Loading State */}
                     {paymentStatus === 'loading' && (
-                        <div className="text-center">
-                            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900 mb-4"></div>
-                            <h1 className="text-2xl font-bold text-gray-900">
-                                Loading...
+                        <div className="text-center py-20">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-6 animate-pulse">
+                                <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                            </div>
+                            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                                Preparing Payment...
                             </h1>
+                            <p className="text-gray-600">
+                                Please wait while we set up your payment
+                            </p>
                         </div>
                     )}
 
                     {/* Processing State */}
                     {paymentStatus === 'processing' && (
-                        <div className="text-center">
-                            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900 mb-4"></div>
+                        <div className="text-center py-20">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-100 rounded-full mb-6 animate-pulse">
+                                <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                            </div>
                             <h1 className="text-2xl sm:text-3xl font-black text-blue-900 mb-3">
                                 Processing Payment...
                             </h1>
-                            <p className="text-gray-600">
+                            <p className="text-gray-600 text-lg mb-2">
                                 Please complete the payment in the Razorpay window
+                            </p>
+                            <p className="text-sm text-gray-500">
+                                Do not close this page
                             </p>
                         </div>
                     )}
