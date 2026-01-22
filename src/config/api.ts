@@ -36,6 +36,13 @@ export const API_ENDPOINTS = {
     // Public endpoints
     REGISTER: `${API_BASE_URL}/api/register`,
 
+    // Payment endpoints
+    PAYMENT: {
+        CREATE_ORDER: `${API_BASE_URL}/api/payments/create-order`,
+        VERIFY_PAYMENT: `${API_BASE_URL}/api/payments/verify-payment`,
+        CHECK_STATUS: `${API_BASE_URL}/api/payments/status`,
+    },
+
     // Admin endpoints
     ADMIN: {
         LOGIN: `${API_BASE_URL}/api/admin/login`,
