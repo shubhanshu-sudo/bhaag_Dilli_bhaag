@@ -82,17 +82,22 @@ export const loadRazorpayScript = (): Promise<boolean> => {
  * Create Razorpay order on backend
  * 
  * @param raceCategory - Race category (2KM, 5KM, 10KM)
+ * @param registrationId - Registration ID to link payment
  * @returns Order details from backend
  */
 export const createRazorpayOrder = async (
-    raceCategory: string
+    raceCategory: string,
+    registrationId: string
 ): Promise<CreateOrderResponse> => {
     const response = await fetch(API_ENDPOINTS.PAYMENT.CREATE_ORDER, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ raceCategory }),
+        body: JSON.stringify({
+            raceCategory,
+            registrationId // CRITICAL: Send registrationId to store in order notes
+        }),
     });
 
     const data = await response.json();
@@ -156,7 +161,7 @@ export const openRazorpayCheckout = (options: RazorpayOptions): void => {
  * 
  * This is the main function to handle the entire payment flow:
  * 1. Load Razorpay script
- * 2. Create order on backend
+ * 2. Create order on backend (with registrationId in notes)
  * 3. Open Razorpay checkout
  * 4. Verify payment on backend
  * 
@@ -183,8 +188,11 @@ export const initiateRazorpayPayment = async (params: {
             throw new Error('Failed to load Razorpay SDK. Please check your internet connection.');
         }
 
-        // Step 2: Create order on backend
-        const orderData = await createRazorpayOrder(params.raceCategory);
+        // Step 2: Create order on backend with registrationId
+        const orderData = await createRazorpayOrder(
+            params.raceCategory,
+            params.registrationId // Pass registrationId to store in order notes
+        );
 
         // Step 3: Get Razorpay key from environment
         const razorpayKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
