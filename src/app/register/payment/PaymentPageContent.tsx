@@ -407,4 +407,4 @@ export function PaymentPageContent() {
             <Footer />
         </div>
     );
-
+}
