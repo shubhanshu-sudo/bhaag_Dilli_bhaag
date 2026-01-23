@@ -592,9 +592,7 @@ export function RegistrationDetailsContent() {
                                         </>
                                     )}
                                 </button>
-                                <p className="text-center text-sm text-gray-500 mt-4">
-                                    By continuing, you agree to our Terms & Conditions
-                                </p>
+
                             </div>
                         </div>
                     </form>

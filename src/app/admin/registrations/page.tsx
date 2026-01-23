@@ -17,6 +17,7 @@ interface Registration {
     tshirtSize: string;
     amount: number;
     paymentStatus: string;
+    step: string;
     createdAt: string;
 }
 
@@ -148,6 +149,35 @@ export default function AdminRegistrationsPage() {
                     Pending
                 </span>
             );
+        }
+    };
+
+    const getStepBadge = (step: string) => {
+        switch (step) {
+            case 'email_captured':
+                return (
+                    <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-gray-100 text-gray-500 uppercase">
+                        Lead Only
+                    </span>
+                );
+            case 'form_completed':
+                return (
+                    <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800 uppercase">
+                        Form Filed
+                    </span>
+                );
+            case 'completed':
+                return (
+                    <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-800 uppercase">
+                        Finished
+                    </span>
+                );
+            default:
+                return (
+                    <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-gray-100 text-gray-400 uppercase">
+                        {step || 'Started'}
+                    </span>
+                );
         }
     };
 
@@ -381,6 +411,9 @@ export default function AdminRegistrationsPage() {
                                                 Status
                                             </th>
                                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Progress
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Date
                                             </th>
                                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -396,7 +429,11 @@ export default function AdminRegistrationsPage() {
                                                 className="hover:bg-gray-50 cursor-pointer transition-colors"
                                             >
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <div className="text-sm font-medium text-gray-900">{registration.name}</div>
+                                                    <div className="text-sm font-medium text-gray-900">
+                                                        {registration.name || (
+                                                            <span className="text-gray-400 italic font-normal">Incomplete / Lead</span>
+                                                        )}
+                                                    </div>
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
                                                     <div className="text-sm text-gray-600">{registration.email}</div>
@@ -412,6 +449,9 @@ export default function AdminRegistrationsPage() {
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
                                                     {getStatusBadge(registration.paymentStatus)}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap">
+                                                    {getStepBadge(registration.step)}
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
                                                     <div className="text-sm text-gray-600">{formatDate(registration.createdAt)}</div>
