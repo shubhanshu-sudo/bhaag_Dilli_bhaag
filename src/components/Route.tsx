@@ -8,7 +8,7 @@ const routes = [
     {
         id: '2km',
         label: '2 KM',
-        distance: '2.0 Kilometers',
+        distance: '2.0 KM',
         description: 'Perfect for families and fun runners. A quick loop around the scenic Japanese Park.',
         image: '/2km.png',
         color: '#1e3a8a'
@@ -16,7 +16,7 @@ const routes = [
     {
         id: '5km',
         label: '5 KM',
-        distance: '5.0 Kilometers',
+        distance: '5.0 KM',
         description: 'The fitness favorite. Two loops of the park with flat paths to push your pace.',
         image: '/5km.png',
         color: '#1e3a8a'
@@ -24,7 +24,7 @@ const routes = [
     {
         id: '10km',
         label: '10 KM',
-        distance: '10.0 Kilometers',
+        distance: '10.0 KM',
         description: 'For serious runners. A rewarding multi-lap course to test your endurance.',
         image: '/10km.png',
         color: '#1e3a8a'
@@ -141,10 +141,10 @@ export default function Route() {
                                     </div>
 
                                     {/* Distance Badge */}
-                                    <div className="absolute top-4 right-4 z-20">
-                                        <div className="bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg border border-white/30">
-                                            <div className="text-[8px] uppercase tracking-tighter text-gray-400 font-bold leading-none mb-1">Distance</div>
-                                            <div className="text-sm font-black text-indigo-950 leading-none">{activeTab.distance}</div>
+                                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20">
+                                        <div className="bg-white/90 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl shadow-lg border border-white/30">
+                                            <div className="text-[7px] sm:text-[8px] uppercase tracking-tighter text-gray-400 font-bold leading-none mb-0.5 sm:mb-1">Distance</div>
+                                            <div className="text-[10px] sm:text-sm font-black text-indigo-950 leading-none">{activeTab.distance}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +163,7 @@ export default function Route() {
 
                                     <Link href="/register" className="w-full sm:w-auto">
                                         <button className="w-full sm:w-auto bg-indigo-50 hover:bg-indigo-100 text-indigo-950 font-black text-xs uppercase tracking-widest px-8 py-4 rounded-2xl transition-all flex items-center justify-center gap-2 group/btn">
-                                            View Detailed PDF
+                                            View Detailed
                                             <svg className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                                         </button>
                                     </Link>
