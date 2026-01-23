@@ -38,10 +38,38 @@ export function RegistrationDetailsContent() {
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Update race details when URL param changes
+    const [registrationExists, setRegistrationExists] = useState(false);
+
+    // Update race details and load prefill data
     useEffect(() => {
         const raceParam = searchParams.get('race') || '5KM';
         setRaceDetails(getRaceConfig(raceParam));
+
+        // Load prefill data from localStorage
+        const savedPrefill = localStorage.getItem('prefillData');
+        const exists = localStorage.getItem('registrationExists') === 'true';
+        setRegistrationExists(exists);
+
+        if (savedPrefill) {
+            try {
+                const data = JSON.parse(savedPrefill);
+                console.log('Applying prefill data:', data);
+
+                setFormData(prev => ({
+                    ...prev,
+                    fullName: data.name || data.fullName || prev.fullName,
+                    email: data.email || prev.email,
+                    phone: data.phone || prev.phone,
+                    gender: data.gender || prev.gender,
+                    dob: data.dob ? data.dob.split('T')[0] : prev.dob,
+                    tshirtSize: data.tshirtSize || prev.tshirtSize,
+                    emergencyName: data.emergencyName || prev.emergencyName,
+                    emergencyPhone: data.emergencyPhone || prev.emergencyPhone,
+                }));
+            } catch (e) {
+                console.error('Failed to parse prefill data', e);
+            }
+        }
     }, [searchParams]);
 
     // Handle input change
@@ -125,11 +153,11 @@ export function RegistrationDetailsContent() {
                 exactAge--;
             }
 
-            // Age validation (minimum 12 years, maximum 100 years)
+            // Age validation (minimum 9 years, maximum 100 years)
             if (dob > today) {
                 newErrors.dob = 'Date of birth cannot be in the future';
-            } else if (exactAge < 12) {
-                newErrors.dob = 'Participants must be at least 12 years old';
+            } else if (exactAge < 9) {
+                newErrors.dob = 'Participants must be at least 9 years old';
             } else if (exactAge > 100) {
                 newErrors.dob = 'Please enter a valid date of birth';
             }
@@ -185,6 +213,7 @@ export function RegistrationDetailsContent() {
 
         try {
             const payload = {
+                registrationId: localStorage.getItem('pendingRegistrationId'), // Send ID if we have it
                 name: formData.fullName,
                 email: formData.email,
                 phone: formData.phone,
@@ -261,8 +290,18 @@ export function RegistrationDetailsContent() {
                         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-blue-900 mb-3">
                             Participant Details
                         </h1>
+                        {registrationExists && (
+                            <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 text-[11px] font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider animate-pulse border border-yellow-200">
+                                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                                </svg>
+                                Continuing previous registration
+                            </div>
+                        )}
                         <p className="text-gray-600 text-base sm:text-lg">
-                            Fill in your details to continue with registration
+                            {registrationExists
+                                ? "We've found your previous registration. Please review and complete the form."
+                                : "Fill in your details to continue with registration"}
                         </p>
                     </div>
 
@@ -369,10 +408,14 @@ export function RegistrationDetailsContent() {
                                         value={formData.email}
                                         onChange={handleChange}
                                         maxLength={100}
-                                        className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all ${errors.email ? 'border-red-500' : 'border-gray-300'
-                                            }`}
+                                        readOnly={registrationExists}
+                                        className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all ${registrationExists ? 'bg-gray-100 cursor-not-allowed text-gray-500' : 'bg-white'
+                                            } ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
                                         placeholder="your.email@example.com"
                                     />
+                                    {registrationExists && (
+                                        <p className="mt-1 text-[10px] text-blue-600 font-semibold uppercase">Email is locked for this registration</p>
+                                    )}
                                     {errors.email && (
                                         <p className="mt-1 text-sm text-red-600">{errors.email}</p>
                                     )}

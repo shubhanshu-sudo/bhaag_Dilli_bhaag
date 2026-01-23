@@ -35,12 +35,14 @@ export const API_BASE_URL = getApiBaseUrl();
 export const API_ENDPOINTS = {
     // Public endpoints
     REGISTER: `${API_BASE_URL}/api/register`,
+    CHECK_EMAIL: `${API_BASE_URL}/api/register/check-email`,
 
     // Payment endpoints
     PAYMENT: {
         CREATE_ORDER: `${API_BASE_URL}/api/payments/create-order`,
         VERIFY_PAYMENT: `${API_BASE_URL}/api/payments/verify-payment`,
         CHECK_STATUS: `${API_BASE_URL}/api/payments/status`,
+        DOWNLOAD_INVOICE: (registrationId: string) => `${API_BASE_URL}/api/payments/invoice/${registrationId}`,
     },
 
     // Admin endpoints

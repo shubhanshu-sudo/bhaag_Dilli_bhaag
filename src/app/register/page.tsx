@@ -1,32 +1,41 @@
+'use client';
+
+import { useState } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import EmailModal from '@/components/EmailModal';
 import { RACE_CONFIG } from '@/config/raceConfig';
 
-export const metadata: Metadata = {
-    title: 'Register - Bhaag Dilli Bhaag 2026',
-    description: 'Register for Bhaag Dilli Bhaag 2026. Choose from 2K Fun Run, 5K Fitness Run, or 10K Endurance Run. Registrations now open!',
-    keywords: 'register, running event, marathon registration, Delhi marathon, 2K 5K 10K registration',
-};
-
 export default function RegisterPage() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedRace, setSelectedRace] = useState('5KM');
+
     // Use centralized race config
     const categories = [
         {
             ...RACE_CONFIG['2KM'],
-            status: "Registrations Open"
+            status: "Registrations Open",
+            raceKey: '2KM'
         },
         {
             ...RACE_CONFIG['5KM'],
-            status: "Registrations Open"
+            status: "Registrations Open",
+            raceKey: '5KM'
         },
         {
             ...RACE_CONFIG['10KM'],
-            status: "Registrations Open"
+            status: "Registrations Open",
+            raceKey: '10KM'
         }
     ];
+
+    const handleRegisterClick = (raceKey: string) => {
+        setSelectedRace(raceKey);
+        setIsModalOpen(true);
+    };
 
     return (
         <>
@@ -114,16 +123,16 @@ export default function RegisterPage() {
                                                 <div className="text-gray-400 text-xs font-medium uppercase tracking-wide mt-2">Registration Fee</div>
                                             </div>
 
-                                            {/* CTA Button - Pass raceKey instead of distance */}
-                                            <Link href={`/register/details?race=${category.raceKey}`} className="block">
-                                                <button className={`w-full ${category.featured
+                                            {/* CTA Button - Trigger Modal instead of direct Link */}
+                                            <button
+                                                onClick={() => handleRegisterClick(category.raceKey)}
+                                                className={`w-full ${category.featured
                                                     ? 'bg-blue-900 hover:bg-blue-800 text-white shadow-blue-900/30 hover:shadow-blue-800/50'
                                                     : 'bg-gray-900 hover:bg-blue-900 text-white shadow-gray-900/30 hover:shadow-blue-900/50'
-                                                    } font-bold text-lg py-4 px-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 group/btn`}>
-                                                    BOOK SLOT
-                                                    <svg className="w-5 h-5 opacity-70 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                                                </button>
-                                            </Link>
+                                                    } font-bold text-lg py-4 px-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 group/btn cursor-pointer`}>
+                                                BOOK SLOT
+                                                <svg className="w-5 h-5 opacity-70 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                            </button>
 
                                             {/* Micro Copy */}
                                             <p className="text-center text-sm text-gray-600 mt-4 italic font-light">
@@ -206,6 +215,11 @@ export default function RegisterPage() {
                 </section>
             </main>
             <Footer />
+            <EmailModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                raceKey={selectedRace}
+            />
         </>
     );
 }

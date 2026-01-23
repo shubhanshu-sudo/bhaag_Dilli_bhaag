@@ -177,6 +177,7 @@ export const initiateRazorpayPayment = async (params: {
         email: string;
         phone: string;
     };
+    onOrderCreated?: () => void;
     onSuccess: (verificationResponse: VerifyPaymentResponse) => void;
     onFailure: (error: Error) => void;
     onDismiss?: () => void;
@@ -193,6 +194,11 @@ export const initiateRazorpayPayment = async (params: {
             params.raceCategory,
             params.registrationId // Pass registrationId to store in order notes
         );
+
+        // Notify that order is created (transition to 'processing' state)
+        if (params.onOrderCreated) {
+            params.onOrderCreated();
+        }
 
         // Step 3: Get Razorpay key from environment
         const razorpayKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
