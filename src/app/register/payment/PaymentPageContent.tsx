@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { initiateRazorpayPayment } from '@/utils/razorpay';
@@ -224,7 +225,7 @@ export function PaymentPageContent() {
             <Navbar />
 
             {/* Main content with proper top spacing to clear navbar */}
-            <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-28" id="payment-main-content">
+            <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-32 md:py-36" id="payment-main-content">
                 <div className="max-w-3xl mx-auto">
 
                     {/* Step Indicator */}
@@ -340,15 +341,29 @@ export function PaymentPageContent() {
                             <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 border border-gray-100 relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -mr-16 -mt-16 opacity-50"></div>
 
-                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 mb-4 sm:mb-6 relative z-10">
-                                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
-                                        Registration Details
-                                    </h2>
-                                    <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-green-100 text-green-700 rounded-full self-start sm:self-auto shadow-sm">
-                                        <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 sm:mb-10 relative z-10 border-b border-gray-100 pb-6">
+                                    <div className="flex items-center gap-4">
+                                        <div className="bg-white p-2 rounded-xl shadow-sm border border-gray-100 transition-transform hover:scale-105">
+                                            <Image
+                                                src="/Untitled-1-01.webp"
+                                                alt="Bhaag Dilli Bhaag Logo"
+                                                width={100}
+                                                height={40}
+                                                className="object-contain"
+                                            />
+                                        </div>
+                                        <div>
+                                            <h2 className="text-xl sm:text-2xl font-black text-blue-900 tracking-tight">
+                                                Registration Details
+                                            </h2>
+                                            <div className="text-[10px] text-blue-600 font-bold uppercase tracking-widest mt-0.5">Official Confirmation</div>
+                                        </div>
+                                    </div>
+                                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full self-start sm:self-auto shadow-sm border border-green-200">
+                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                         </svg>
-                                        <span className="text-xs sm:text-sm font-bold uppercase tracking-wider">Confirmed</span>
+                                        <span className="text-xs font-black uppercase tracking-wider">Confirmed</span>
                                     </div>
                                 </div>
 
@@ -365,14 +380,14 @@ export function PaymentPageContent() {
 
                                     {registrationData && (
                                         <>
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                                <div className="flex flex-col py-2 border-b border-gray-50">
-                                                    <span className="text-gray-500 font-medium text-xs">Name</span>
-                                                    <span className="font-bold text-gray-900 truncate">{registrationData.fullName}</span>
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+                                                <div className="flex flex-col py-2 border-b border-gray-100">
+                                                    <span className="text-gray-500 font-bold text-[10px] uppercase tracking-wider mb-1">Participant Name</span>
+                                                    <span className="font-bold text-gray-900 text-sm sm:text-base">{registrationData.fullName}</span>
                                                 </div>
-                                                <div className="flex flex-col py-2 border-b border-gray-50">
-                                                    <span className="text-gray-500 font-medium text-xs">Email</span>
-                                                    <span className="font-semibold text-gray-900 truncate">{registrationData.email}</span>
+                                                <div className="flex flex-col py-2 border-b border-gray-100">
+                                                    <span className="text-gray-500 font-bold text-[10px] uppercase tracking-wider mb-1">Email Address</span>
+                                                    <span className="font-bold text-gray-900 text-sm sm:text-base break-all">{registrationData.email}</span>
                                                 </div>
                                             </div>
 

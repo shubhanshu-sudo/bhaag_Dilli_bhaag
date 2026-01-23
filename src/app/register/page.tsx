@@ -42,7 +42,7 @@ export default function RegisterPage() {
             <Navbar />
             <main className="min-h-screen">
                 {/* Hero Header */}
-                <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 bg-gradient-to-br from-blue-800 to-blue-900 overflow-hidden">
+                <section className="relative h-[400px] sm:h-[500px] lg:h-[600px] flex items-center bg-gradient-to-br from-blue-800 to-blue-900 overflow-hidden">
                     <div className="absolute inset-0 opacity-30">
                         <div className="absolute inset-0" style={{
                             backgroundImage: "url('/167272977411.jpg')",
@@ -130,7 +130,7 @@ export default function RegisterPage() {
                                                     ? 'bg-blue-900 hover:bg-blue-800 text-white shadow-blue-900/30 hover:shadow-blue-800/50'
                                                     : 'bg-gray-900 hover:bg-blue-900 text-white shadow-gray-900/30 hover:shadow-blue-900/50'
                                                     } font-bold text-lg py-4 px-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 group/btn cursor-pointer`}>
-                                                BOOK SLOT
+                                                BOOK NOW
                                                 <svg className="w-5 h-5 opacity-70 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                                             </button>
 

@@ -12,7 +12,7 @@ export default function Hero() {
             <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[60%] z-0 h-full">
                 <img
                     src="/common5.jpg"
-                    alt="Bhaag Dilli Bhaag Marathon Runners"
+                    alt="Bhaag Dilli Bhaag Running Event"
                     className="w-full h-full object-cover object-center"
                 />
                 {/* 
@@ -41,15 +41,10 @@ export default function Hero() {
                         <div className="max-w-xl flex flex-col justify-center">
 
                             {/* Headline - Added top margin for separation from Navbar */}
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 sm:mb-8 mt-8 sm:mt-12 leading-[1.05] tracking-tight italic">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 sm:mb-8 mt-8 sm:mt-12 leading-[1.1] tracking-tight italic">
                                 Bhaag Dilli Bhaag <br />
-                                <span className="text-blue-900">Marathon</span>
+                                <span className="text-blue-900 text-3xl sm:text-4xl md:text-5xl block mt-2">Running Event</span>
                             </h1>
-
-                            {/* Subtext */}
-                            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-5 font-medium leading-relaxed">
-                                Run with heart. Run for education.
-                            </p>
 
                             <p className="text-sm sm:text-base text-gray-600 mb-8 sm:mb-10 font-normal leading-relaxed">
                                 Every step you take helps build classrooms and open doors for underprivileged children.
@@ -69,7 +64,7 @@ export default function Hero() {
 
                             {/* CTA Button */}
                             <Link href="/register">
-                                <button className="bg-[#FFF8E7] hover:bg-[#ffeebb] text-yellow-700 font-bold text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-full shadow-lg border border-yellow-200 transition-all hover:-translate-y-1 hover:shadow-xl w-full sm:w-auto">
+                                <button className="bg-[#FFF8E7] hover:bg-[#ffeebb] text-yellow-700 font-bold text-base sm:text-xl px-6 sm:px-12 py-3 sm:py-5 rounded-full shadow-lg border border-yellow-200 transition-all hover:-translate-y-1 hover:shadow-xl w-full sm:w-auto">
                                     Register Now
                                 </button>
                             </Link>
