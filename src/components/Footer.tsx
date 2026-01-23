@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -27,8 +28,14 @@ export default function Footer() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 mb-12 sm:mb-14 lg:mb-16 pb-12 sm:pb-14 lg:pb-16">
                     {/* Brand / Logo Area */}
                     <div className="col-span-1 text-center sm:text-left">
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 rounded-full flex items-center justify-center mb-4 sm:mb-6 backdrop-blur-md mx-auto sm:mx-0 border border-white/30 shadow-xl">
-                            <div className="text-xl sm:text-2xl font-black text-white">bdb</div>
+                        <div className="inline-block bg-white p-2 rounded-xl mb-6 mx-auto sm:mx-0 transition-transform hover:scale-105">
+                            <Image
+                                src="/Untitled-1-01.webp"
+                                alt="Bhaag Dilli Bhaag Logo"
+                                width={200}
+                                height={70}
+                                className="object-contain"
+                            />
                         </div>
                         <h3 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4 text-white">Bhaag Dilli Bhaag</h3>
                         <p className="text-blue-100 text-sm leading-relaxed font-light mb-2">

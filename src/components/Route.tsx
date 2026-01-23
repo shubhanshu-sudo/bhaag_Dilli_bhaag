@@ -10,8 +10,7 @@ const routes = [
         label: '2 KM',
         distance: '2.0 Kilometers',
         description: 'Perfect for families and fun runners. A quick loop around the scenic Japanese Park.',
-        // Replace with actual route map images when available
-        image: '/Marathon.jpg',
+        image: '/2km.png',
         color: '#1e3a8a'
     },
     {
@@ -19,7 +18,7 @@ const routes = [
         label: '5 KM',
         distance: '5.0 Kilometers',
         description: 'The fitness favorite. Two loops of the park with flat paths to push your pace.',
-        image: '/hero-marathon.jpg',
+        image: '/5km.png',
         color: '#1e3a8a'
     },
     {
@@ -27,7 +26,7 @@ const routes = [
         label: '10 KM',
         distance: '10.0 Kilometers',
         description: 'For serious runners. A rewarding multi-lap course to test your endurance.',
-        image: '/167272977411.jpg',
+        image: '/10km.png',
         color: '#1e3a8a'
     }
 ];
@@ -54,10 +53,10 @@ export default function Route() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-50 rounded-full blur-3xl opacity-50 -ml-32 -mb-32"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
                     {/* Content Left */}
-                    <div className="lg:col-span-5 flex flex-col justify-center">
+                    <div className="flex flex-col justify-center">
                         <div className="inline-block px-4 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-indigo-700 text-sm font-bold tracking-wide mb-6 w-fit">
                             THE COURSE
                         </div>
@@ -91,7 +90,7 @@ export default function Route() {
                     </div>
 
                     {/* Interactive Map Right */}
-                    <div className="lg:col-span-7 h-full">
+                    <div className="h-full">
                         <div className="bg-white p-2 sm:p-3 rounded-[2.5rem] shadow-2xl border border-gray-100 overflow-hidden h-full flex flex-col">
                             {/* Tabs Navigation */}
                             <div className="p-4 sm:p-6 bg-gray-50 rounded-t-[2.2rem] border-b border-gray-100">
@@ -117,9 +116,9 @@ export default function Route() {
                             </div>
 
                             {/* Map Image Container */}
-                            <div className="p-4 sm:p-8 flex-grow">
+                            <div className="p-4 flex-grow">
                                 <div className={`
-                                    relative aspect-[16/10] bg-indigo-50/30 rounded-3xl overflow-hidden border border-gray-100
+                                    relative aspect-[4/5] bg-white rounded-3xl overflow-hidden border border-gray-200
                                     transition-all duration-500 ease-out shadow-inner
                                     ${isChanging ? 'opacity-0 scale-95 blur-sm' : 'opacity-100 scale-100 blur-0'}
                                 `}>
@@ -139,24 +138,13 @@ export default function Route() {
                                             className="object-cover"
                                             sizes="(max-width: 1024px) 100vw, 800px"
                                         />
-                                        {/* Overlay shading for depth */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                                     </div>
 
                                     {/* Distance Badge */}
-                                    <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20">
-                                        <div className="bg-white/90 backdrop-blur-md px-4 sm:px-6 py-2 sm:py-3 rounded-2xl shadow-2xl border border-white/20">
-                                            <div className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-gray-500 font-black mb-0.5">Total distance</div>
-                                            <div className="text-xl sm:text-3xl font-black text-indigo-950 italic leading-none">{activeTab.distance}</div>
-                                        </div>
-                                    </div>
-
-                                    {/* Description Overlay - Small info box */}
-                                    <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-20 max-w-[150px] sm:max-w-[200px] hidden sm:block">
-                                        <div className="bg-indigo-950/20 backdrop-blur-md p-4 rounded-2xl border border-white/10 shadow-lg">
-                                            <p className="text-[11px] sm:text-xs text-white font-medium leading-relaxed">
-                                                {activeTab.description}
-                                            </p>
+                                    <div className="absolute top-4 right-4 z-20">
+                                        <div className="bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-lg border border-white/30">
+                                            <div className="text-[8px] uppercase tracking-tighter text-gray-400 font-bold leading-none mb-1">Distance</div>
+                                            <div className="text-sm font-black text-indigo-950 leading-none">{activeTab.distance}</div>
                                         </div>
                                     </div>
                                 </div>

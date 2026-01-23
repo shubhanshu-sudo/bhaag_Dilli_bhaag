@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -18,22 +19,22 @@ export default function Navbar() {
           rounded-xl
           shadow-xl
           px-4 sm:px-6 lg:px-8
-          py-3 sm:py-4
+          py-1 sm:py-1.5
           flex items-center justify-between
           border border-blue-50
         "
       >
         {/* Brand */}
-        <Link href="/" className="flex-shrink-0 flex items-center gap-2 sm:gap-3 z-10">
-          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-900 rounded-lg flex items-center justify-center text-white font-black text-xs">
-            BDB
+        <Link href="/" className="flex-shrink-0 flex items-center transition-all duration-300 hover:scale-105 group">
+          <div className="relative w-48 h-12 sm:w-64 sm:h-20">
+            <Image
+              src="/Untitled-1-01.webp"
+              alt="Bhaag Dilli Bhaag Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
-          <span className="text-base sm:text-xl font-black text-blue-900 tracking-tight hidden sm:inline">
-            Bhaag Dilli Bhaag
-          </span>
-          <span className="text-sm font-black text-blue-900 tracking-tight sm:hidden">
-            BDB
-          </span>
         </Link>
 
         {/* Desktop Nav Links */}
