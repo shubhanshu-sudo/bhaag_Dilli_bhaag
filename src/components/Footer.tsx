@@ -7,14 +7,14 @@ export default function Footer() {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <div
-                    className="absolute inset-0 bg-cover bg-center"
+                    className="absolute inset-0 bg-cover bg-center opacity-40 shadow-inner"
                     style={{
                         backgroundImage: "url('/wnc-gallery-8.1.jpeg')"
                     }}
                 ></div>
-                {/* Lighter overlay for better image visibility */}
-                <div className="absolute inset-0 bg-gradient-to-b from-blue-900/70 via-blue-900/60 to-blue-950/75"></div>
-                <div className="absolute inset-0 bg-blue-900/20"></div>
+                {/* Darker overlay for better text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-950/90 via-blue-950/85 to-blue-950/95"></div>
+                <div className="absolute inset-0 bg-indigo-950/20"></div>
             </div>
 
             {/* Wavy Top Edge - SVG Clip Path Simulation */}
