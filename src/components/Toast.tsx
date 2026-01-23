@@ -78,7 +78,7 @@ function ToastItem({ toast, onRemove }: ToastItemProps) {
     return (
         <div
             className={`
-                flex items-start gap-3 p-4 rounded-xl border shadow-lg backdrop-blur-sm
+                flex items-start gap-3 p-4 rounded-xl border shadow-lg backdrop-blur-sm pointer-events-auto
                 ${getColors()}
                 ${isExiting ? 'animate-toast-exit' : 'animate-toast-enter'}
                 transition-all duration-300
@@ -117,7 +117,7 @@ export default function ToastContainer() {
 
     return (
         <div
-            className="fixed top-4 right-4 z-50 flex flex-col gap-3 max-w-md w-full px-4 sm:px-0"
+            className="fixed top-20 sm:top-24 lg:top-28 right-4 z-[9999] flex flex-col gap-3 max-w-md w-full px-4 sm:px-0 pointer-events-none"
             aria-live="polite"
             aria-atomic="true"
         >
