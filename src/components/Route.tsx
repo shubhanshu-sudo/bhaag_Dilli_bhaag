@@ -60,13 +60,13 @@ export default function Route() {
                         <div className="inline-block px-4 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-indigo-700 text-sm font-bold tracking-wide mb-6 w-fit">
                             THE COURSE
                         </div>
-                        <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black text-indigo-950 italic tracking-tight mb-6 leading-[1.1]">
+                        <h2 className="text-3xl sm:text-5xl lg:text-7xl font-black text-indigo-950 italic tracking-tight mb-4 sm:mb-6 leading-[1.1]">
                             The Route
                         </h2>
-                        <p className="text-lg sm:text-xl text-gray-600 font-light leading-relaxed mb-6">
+                        <p className="text-base sm:text-xl text-gray-600 font-light leading-relaxed mb-4 sm:mb-6">
                             Set within Japanese Park, Rohini, the course offers a calm, green, and runner-friendly environment. Wide paths and flat terrain make it ideal for both new runners and those chasing personal milestones.
                         </p>
-                        <p className="text-lg text-gray-600 font-medium leading-relaxed mb-8 italic border-l-4 border-yellow-400 pl-4">
+                        <p className="text-base text-gray-600 font-medium leading-relaxed mb-8 italic border-l-4 border-yellow-400 pl-4">
                             Every step you take here is part of a larger journey beyond the park.
                         </p>
 
@@ -93,14 +93,14 @@ export default function Route() {
                     <div className="h-full">
                         <div className="bg-white p-2 sm:p-3 rounded-[2.5rem] shadow-2xl border border-gray-100 overflow-hidden h-full flex flex-col">
                             {/* Tabs Navigation */}
-                            <div className="p-4 sm:p-6 bg-gray-50 rounded-t-[2.2rem] border-b border-gray-100">
-                                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3">
+                            <div className="p-3 sm:p-6 bg-gray-50 rounded-t-[2.2rem] border-b border-gray-100">
+                                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-3">
                                     {routes.map((route) => (
                                         <button
                                             key={route.id}
                                             onClick={() => handleTabChange(route)}
                                             className={`
-                                                relative px-6 sm:px-8 py-3 rounded-full text-xs sm:text-sm font-black uppercase tracking-widest transition-all duration-300
+                                                relative px-4 sm:px-8 py-2.5 sm:py-3 rounded-full text-[10px] sm:text-sm font-black uppercase tracking-widest transition-all duration-300
                                                 ${activeTab.id === route.id
                                                     ? 'bg-indigo-950 text-white shadow-xl scale-105'
                                                     : 'bg-white text-gray-400 hover:bg-gray-100 hover:text-indigo-950 shadow-sm'}
@@ -142,27 +142,27 @@ export default function Route() {
 
                                     {/* Distance Badge */}
                                     <div className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20">
-                                        <div className="bg-white/90 backdrop-blur-md px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl shadow-lg border border-white/30">
-                                            <div className="text-[7px] sm:text-[8px] uppercase tracking-tighter text-gray-400 font-bold leading-none mb-0.5 sm:mb-1">Distance</div>
-                                            <div className="text-[10px] sm:text-sm font-black text-indigo-950 leading-none">{activeTab.distance}</div>
+                                        <div className="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-lg sm:rounded-xl shadow-xl border border-white/50">
+                                            <div className="text-[8px] sm:text-[9px] uppercase tracking-tighter text-gray-500 font-bold leading-none mb-0.5 sm:mb-1">Distance</div>
+                                            <div className="text-[11px] sm:text-sm font-black text-indigo-950 leading-none">{activeTab.distance}</div>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Polish Labels & Info */}
-                                <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-yellow-400 rounded-2xl flex items-center justify-center text-indigo-950 shadow-lg transform -rotate-3 group-hover:rotate-0 transition-transform">
-                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
+                                    <div className="flex items-center gap-3 sm:gap-4 w-full sm:w-auto">
+                                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-400 rounded-xl sm:rounded-2xl flex items-center justify-center text-indigo-950 shadow-lg transform -rotate-2 sm:-rotate-3 transition-transform">
+                                            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                                         </div>
                                         <div>
-                                            <div className="text-base sm:text-lg font-black text-indigo-950 uppercase tracking-tighter">Rohini Sector 10</div>
-                                            <div className="text-[10px] sm:text-xs text-indigo-600 font-bold uppercase tracking-[0.3em] leading-none">Japanese Park, New Delhi</div>
+                                            <div className="text-sm sm:text-lg font-black text-indigo-950 uppercase tracking-tighter">Rohini Sector 10</div>
+                                            <div className="text-[8px] sm:text-xs text-indigo-600 font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] leading-none">Japanese Park, New Delhi</div>
                                         </div>
                                     </div>
 
                                     <Link href="/register" className="w-full sm:w-auto">
-                                        <button className="w-full sm:w-auto bg-indigo-50 hover:bg-indigo-100 text-indigo-950 font-black text-xs uppercase tracking-widest px-8 py-4 rounded-2xl transition-all flex items-center justify-center gap-2 group/btn">
+                                        <button className="w-full sm:w-auto bg-indigo-50 hover:bg-indigo-100 text-indigo-950 font-black text-[10px] sm:text-xs uppercase tracking-widest px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-2 group/btn">
                                             View Detailed
                                             <svg className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                                         </button>
