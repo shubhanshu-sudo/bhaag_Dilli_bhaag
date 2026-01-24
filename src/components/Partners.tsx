@@ -18,45 +18,45 @@ export default function Partners() {
         <section className="py-20 sm:py-28 lg:py-32 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center mb-20">
-                    <div className="inline-block px-4 py-1.5 bg-blue-50 border border-blue-100 rounded-full text-blue-700 text-xs font-black tracking-[0.2em] uppercase mb-6">
+                <div className="text-center mb-10 sm:mb-16 lg:mb-20">
+                    <div className="inline-block px-4 py-1.5 bg-blue-50 border border-blue-100 rounded-full text-blue-700 text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase mb-4 sm:mb-6">
                         Support Network
                     </div>
-                    <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-indigo-950 italic tracking-tighter mb-8 leading-[0.9]">
-                        Our Partners & <span className="text-blue-600">Sponsors</span>
+                    <h2 className="text-3xl sm:text-6xl lg:text-7xl font-black text-indigo-950 italic tracking-tighter mb-4 sm:mb-8 leading-[1.1] sm:leading-[0.9]">
+                        Our Partners & <br className="sm:hidden" /> <span className="text-blue-600">Sponsors</span>
                     </h2>
-                    <p className="max-w-2xl mx-auto text-gray-500 text-lg sm:text-xl font-light leading-relaxed">
-                        Proudly supported by visionary brands and community-focused organizations committed to changing lives through education.
+                    <p className="max-w-xl mx-auto text-gray-500 text-sm sm:text-xl font-light leading-relaxed">
+                        Proudly supported by visionary brands committed to changing lives through education.
                     </p>
                 </div>
 
-                {/* Partners Grid - Balanced 3x3 for 9 logos */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
+                {/* Partners Grid - Compact 2-column on mobile, balanced on desktop */}
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
                     {sponsors.map((partner) => (
                         <div
                             key={partner.id}
-                            className="group relative flex flex-col items-center justify-center p-8 sm:p-12 bg-white rounded-[3rem] border border-gray-100 transition-all duration-700 hover:shadow-[0_40px_80px_-15px_rgba(30,58,138,0.15)] hover:-translate-y-3 cursor-pointer overflow-hidden"
+                            className="group relative flex flex-col items-center justify-center p-5 sm:p-12 bg-white rounded-2xl sm:rounded-[3rem] border border-gray-100 transition-all duration-700 hover:shadow-[0_40px_80px_-15px_rgba(30,58,138,0.15)] hover:-translate-y-2 sm:hover:-translate-y-3 cursor-pointer overflow-hidden"
                         >
                             {/* Animated Background Gradient */}
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-                            {/* Image Container */}
-                            <div className="relative w-full aspect-[4/3] flex items-center justify-center z-10">
+                            {/* Image Container - Restricted height on mobile */}
+                            <div className="relative w-full h-12 sm:h-auto sm:aspect-[4/3] flex items-center justify-center z-10">
                                 <Image
                                     src={partner.path}
                                     alt={`Partner ${partner.id}`}
                                     fill
                                     className="object-contain grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
-                                    sizes="(max-width: 640px) 100vw, 400px"
+                                    sizes="(max-width: 640px) 150px, 400px"
                                 />
                             </div>
 
-                            {/* Label with Animated Underline */}
-                            <div className="mt-8 text-center z-10 relative">
-                                <div className="text-[11px] font-black uppercase tracking-[0.3em] text-gray-400 group-hover:text-blue-600 transition-colors duration-500">
+                            {/* Label - Subtle on mobile */}
+                            <div className="mt-4 sm:mt-8 text-center z-10 relative">
+                                <div className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-gray-400 group-hover:text-blue-600 transition-colors duration-500">
                                     {partner.type}
                                 </div>
-                                <div className="mt-2 h-0.5 w-0 group-hover:w-full bg-blue-400 mx-auto transition-all duration-500 rounded-full"></div>
+                                <div className="hidden sm:block mt-2 h-0.5 w-0 group-hover:w-full bg-blue-400 mx-auto transition-all duration-500 rounded-full"></div>
                             </div>
                         </div>
                     ))}
