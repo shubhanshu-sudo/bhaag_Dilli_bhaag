@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function About() {
     return (
         <section id="about" className="bg-white py-12 sm:py-16 lg:py-24 relative overflow-hidden">
@@ -10,12 +12,13 @@ export default function About() {
                     <div className="relative order-2 lg:order-1">
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] transform rotate-1 hover:rotate-0 transition-all duration-500">
                             {/* Using local image from public folder */}
-                            <div
-                                className="absolute inset-0 bg-cover bg-center"
-                                style={{
-                                    backgroundImage: "url('/about-image.png')"
-                                }}
-                            ></div>
+                            <Image
+                                src="/photo-1642140076947-7d410aaaa911.avif"
+                                alt="Bhaag Dilli Bhaag Marathon"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
                             <div className="absolute inset-0 bg-blue-900/10"></div>
                         </div>
                         {/* Decorative element behind */}
