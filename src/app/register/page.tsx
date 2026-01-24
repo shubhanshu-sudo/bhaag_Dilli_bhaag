@@ -83,59 +83,99 @@ export default function RegisterPage() {
                                         }`}
                                 >
                                     {/* Header */}
-                                    <div className={`${category.featured ? 'bg-blue-800' : 'bg-white border-b border-gray-100'} p-6 sm:p-8 text-center relative transition-all duration-300`}>
+                                    <div className={`${category.featured ? 'bg-blue-800' : 'bg-white border-b border-gray-100'} p-5 sm:p-8 text-center md:text-center relative transition-all duration-300`}>
                                         {category.featured && (
-                                            <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-yellow-400 text-blue-900 text-[10px] font-bold px-2 sm:px-3 py-1 rounded-full tracking-wider shadow-md uppercase transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                                            <div className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-yellow-400 text-blue-900 text-[10px] font-bold px-2 sm:px-3 py-1 rounded-full tracking-wider shadow-md uppercase transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
                                                 Most Popular
                                             </div>
                                         )}
-                                        <div className={`text-4xl sm:text-5xl lg:text-6xl font-black mb-1 transition-all duration-300 group-hover:scale-105 ${category.featured ? 'text-white' : 'text-blue-900'}`}>{category.distance}</div>
-                                        <div className={`text-lg sm:text-xl font-bold uppercase tracking-wide mb-3 ${category.featured ? 'text-blue-100' : 'text-gray-500'}`}>{category.title}</div>
 
-                                        <div className={`inline-block text-xs font-bold px-3 sm:px-4 py-1.5 rounded-full uppercase tracking-wider transition-all duration-300 ${category.featured ? 'bg-blue-700 text-white group-hover:bg-blue-600' : 'bg-green-100 text-green-700 group-hover:bg-green-200'}`}>
-                                            {category.status}
+                                        <div className="flex flex-col items-center">
+                                            <div className={`text-3xl sm:text-5xl lg:text-6xl font-black mb-0 sm:mb-1 transition-all duration-300 group-hover:scale-105 ${category.featured ? 'text-white' : 'text-blue-900'}`}>
+                                                {category.distance}
+                                            </div>
+                                            <div className={`text-sm sm:text-xl font-bold uppercase tracking-wide mb-3 ${category.featured ? 'text-blue-100' : 'text-gray-500'}`}>
+                                                {category.title}
+                                            </div>
+
+                                            {/* Mobile Price Display - Highly visible near header */}
+                                            <div className="md:hidden mt-1 mb-3">
+                                                <span className={`text-2xl font-black ${category.featured ? 'text-white' : 'text-blue-900'}`}>₹{category.price}</span>
+                                                <span className={`text-[10px] ml-1 uppercase opacity-70 ${category.featured ? 'text-blue-100' : 'text-gray-500'}`}>Registration Fee</span>
+                                            </div>
+
+                                            <div className={`inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 rounded-full uppercase tracking-wider transition-all duration-300 ${category.featured ? 'bg-blue-700 text-white group-hover:bg-blue-600' : 'bg-green-100 text-green-700 group-hover:bg-green-200'}`}>
+                                                {category.status}
+                                            </div>
                                         </div>
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-6 sm:p-8 flex flex-col flex-grow">
-                                        {/* Inclusions */}
-                                        <div className="mb-6 sm:mb-8 flex-grow">
-                                            <h4 className="font-bold text-gray-900 mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wide opacity-80">Included in Ticket:</h4>
-                                            <ul className="space-y-3 sm:space-y-4">
-                                                {category.includes.slice(0, 5).map((item, idx) => (
-                                                    <li key={idx} className="flex items-start text-sm transition-all duration-200 group-hover:translate-x-1">
-                                                        <div className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 flex-shrink-0 transition-all duration-300 ${category.featured ? 'bg-blue-100 text-blue-700 group-hover:bg-blue-200' : 'bg-gray-100 text-gray-500 group-hover:bg-blue-100 group-hover:text-blue-600'}`}>
-                                                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                                                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                                            </svg>
-                                                        </div>
-                                                        <span className="text-gray-700 font-medium">{item}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-
-                                        {/* Price Section - Pushed to Bottom */}
-                                        <div className="mt-auto">
-                                            <div className="mb-6 text-center pt-6 border-t border-gray-100">
-                                                <div className={`text-4xl sm:text-5xl font-black tracking-tight transition-all duration-300 ${category.featured ? 'text-blue-900 group-hover:text-blue-800' : 'text-gray-900 group-hover:text-blue-900'}`}>₹{category.price}</div>
-                                                <div className="text-gray-400 text-xs font-medium uppercase tracking-wide mt-2">Registration Fee</div>
+                                    <div className="p-5 sm:p-8 flex flex-col flex-grow">
+                                        {/* Inclusions - Collapsible on Mobile */}
+                                        <div className="mb-4 sm:mb-8 flex-grow">
+                                            <div className="md:hidden">
+                                                <details className="group/details">
+                                                    <summary className="flex items-center justify-between cursor-pointer list-none py-2 border-y border-gray-50 mb-2">
+                                                        <span className="font-bold text-gray-900 text-[11px] uppercase tracking-wide opacity-80">What's Included?</span>
+                                                        <svg className="w-4 h-4 text-gray-400 transition-transform group-open/details:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                                        </svg>
+                                                    </summary>
+                                                    <ul className="space-y-2 py-2">
+                                                        {category.includes.map((item, idx) => (
+                                                            <li key={idx} className="flex items-start text-xs">
+                                                                <div className={`w-4 h-4 rounded-full flex items-center justify-center mr-2 flex-shrink-0 bg-blue-50 text-blue-600`}>
+                                                                    <svg className="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 20 20">
+                                                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                                    </svg>
+                                                                </div>
+                                                                <span className="text-gray-600">{item}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </details>
                                             </div>
 
-                                            {/* CTA Button - Trigger Modal instead of direct Link */}
+                                            <div className="hidden md:block">
+                                                <h4 className="font-bold text-gray-900 mb-4 sm:mb-5 text-sm uppercase tracking-wide opacity-80">Included in Ticket:</h4>
+                                                <ul className="space-y-4">
+                                                    {category.includes.slice(0, 5).map((item, idx) => (
+                                                        <li key={idx} className="flex items-start text-sm transition-all duration-200 group-hover:translate-x-1">
+                                                            <div className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 flex-shrink-0 transition-all duration-300 ${category.featured ? 'bg-blue-100 text-blue-700 group-hover:bg-blue-200' : 'bg-gray-100 text-gray-500 group-hover:bg-blue-100 group-hover:text-blue-600'}`}>
+                                                                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                                </svg>
+                                                            </div>
+                                                            <span className="text-gray-700 font-medium">{item}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        {/* Price Section - Compact for Mobile, Detailed for Desktop */}
+                                        <div className="mt-auto">
+                                            <div className="mb-4 sm:mb-6 text-center pt-4 sm:pt-6 border-t border-gray-100">
+                                                <div className="hidden md:block">
+                                                    <div className={`text-4xl sm:text-5xl font-black tracking-tight transition-all duration-300 ${category.featured ? 'text-blue-900 group-hover:text-blue-800' : 'text-gray-900 group-hover:text-blue-900'}`}>₹{category.price}</div>
+                                                    <div className="text-gray-400 text-xs font-medium uppercase tracking-wide mt-2">Registration Fee</div>
+                                                </div>
+                                            </div>
+
+                                            {/* CTA Button */}
                                             <button
                                                 onClick={() => handleRegisterClick(category.raceKey)}
                                                 className={`w-full ${category.featured
-                                                    ? 'bg-blue-900 hover:bg-blue-800 text-white shadow-blue-900/30 hover:shadow-blue-800/50'
-                                                    : 'bg-gray-900 hover:bg-blue-900 text-white shadow-gray-900/30 hover:shadow-blue-900/50'
-                                                    } font-bold text-lg py-4 px-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 group/btn cursor-pointer`}>
+                                                    ? 'bg-blue-900 hover:bg-blue-800 text-white shadow-blue-900/30'
+                                                    : 'bg-gray-900 hover:bg-blue-900 text-white shadow-gray-900/30'
+                                                    } font-bold text-base sm:text-lg py-3.5 sm:py-4 px-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2 group/btn cursor-pointer`}>
                                                 BOOK NOW
                                                 <svg className="w-5 h-5 opacity-70 transition-all duration-300 group-hover/btn:translate-x-1 group-hover/btn:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                                             </button>
 
                                             {/* Micro Copy */}
-                                            <p className="text-center text-sm text-gray-600 mt-4 italic font-light">
+                                            <p className="hidden sm:block text-center text-sm text-gray-600 mt-4 italic font-light">
                                                 Every step you take helps move education forward.
                                             </p>
                                         </div>
