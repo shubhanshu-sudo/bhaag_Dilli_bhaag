@@ -64,24 +64,24 @@ export default function Partners() {
             </div>
 
             {/* CTA Pre-Footer Card */}
-            <div className="px-4 sm:px-6 mt-32">
+            <div className="px-4 sm:px-6 mt-20 sm:mt-32">
                 <div className="max-w-5xl mx-auto">
-                    <div className="relative bg-indigo-950 rounded-[4rem] p-12 lg:p-24 text-center shadow-3xl overflow-hidden group">
+                    <div className="relative bg-indigo-950 rounded-[2.5rem] sm:rounded-[4rem] p-10 sm:p-16 lg:p-24 text-center shadow-3xl overflow-hidden group">
                         {/* More Dynamic Animated Decorative Elements */}
-                        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/30 rounded-full blur-[120px] group-hover:scale-125 transition-transform duration-1000"></div>
-                        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-500/30 rounded-full blur-[120px] group-hover:scale-125 transition-transform duration-1000"></div>
+                        <div className="absolute -top-24 -right-24 w-72 h-72 sm:w-96 sm:h-96 bg-blue-500/30 rounded-full blur-[100px] sm:blur-[120px] group-hover:scale-125 transition-transform duration-1000"></div>
+                        <div className="absolute -bottom-24 -left-24 w-72 h-72 sm:w-96 sm:h-96 bg-purple-500/30 rounded-full blur-[100px] sm:blur-[120px] group-hover:scale-125 transition-transform duration-1000"></div>
 
                         <div className="relative z-10">
-                            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-8 leading-none italic tracking-tighter">
+                            <h2 className="text-[32px] sm:text-5xl lg:text-7xl font-black text-white mb-6 sm:mb-8 leading-[1.1] sm:leading-none italic tracking-tighter">
                                 Be Part of Something<br />That <span className="text-blue-400">Matters</span>
                             </h2>
-                            <p className="text-indigo-100 text-lg lg:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                            <p className="text-indigo-100 text-base lg:text-xl mb-10 sm:mb-12 max-w-2xl mx-auto font-light leading-relaxed">
                                 Join a community of runners who believe that effort, when shared, can create change. When you run Bhaag Dilli Bhaag, you run with purpose.
                             </p>
 
-                            <Link href="/register" className="inline-block relative group/btn">
+                            <Link href="/register" className="inline-block relative group/btn w-full sm:w-auto">
                                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-2xl blur opacity-25 group-hover/btn:opacity-100 transition duration-700"></div>
-                                <button className="relative bg-white text-indigo-950 font-black text-sm sm:text-base uppercase tracking-[0.2em] px-14 py-6 rounded-2xl shadow-2xl transition-all transform hover:scale-105 active:scale-95 flex items-center gap-4">
+                                <button className="relative w-full sm:w-auto bg-white text-indigo-950 font-black text-xs sm:text-base uppercase tracking-[0.2em] px-10 sm:px-14 py-5 sm:py-6 rounded-2xl shadow-2xl transition-all transform hover:scale-105 active:scale-95 flex items-center justify-center gap-4 mx-auto">
                                     Register Now
                                     <svg className="w-5 h-5 transition-transform group-hover/btn:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                                 </button>

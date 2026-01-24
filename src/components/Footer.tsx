@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Footer() {
     return (
-        <footer id="contact" className="relative pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-10 overflow-hidden">
+        <footer id="contact" className="relative pt-16 sm:pt-28 lg:pt-32 pb-8 sm:pb-10 overflow-hidden">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <div
@@ -25,50 +25,47 @@ export default function Footer() {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 mb-12 sm:mb-14 lg:mb-16 pb-12 sm:pb-14 lg:pb-16">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-4 sm:gap-10 lg:gap-12 xl:gap-16 mb-10 sm:mb-14 lg:mb-16 pb-10 sm:pb-14 lg:pb-16">
                     {/* Brand / Logo Area */}
-                    <div className="col-span-1 text-center sm:text-left">
-                        <div className="inline-block bg-white p-2 rounded-xl mb-6 mx-auto sm:mx-0 transition-transform hover:scale-105">
+                    <div className="col-span-2 lg:col-span-1 text-center sm:text-left">
+                        <div className="inline-block bg-white p-1.5 sm:p-2 rounded-xl mb-4 sm:mb-6 mx-auto sm:mx-0 transition-transform hover:scale-105 shadow-md">
                             <Image
                                 src="/Untitled-1-01.webp"
                                 alt="Bhaag Dilli Bhaag Logo"
-                                width={200}
-                                height={70}
-                                className="object-contain"
+                                width={160}
+                                height={56}
+                                className="object-contain w-32 sm:w-auto h-auto"
                             />
                         </div>
-                        <h3 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4 text-white">Bhaag Dilli Bhaag</h3>
-                        <p className="text-blue-100 text-sm leading-relaxed font-light mb-2">
-                            A purpose-driven marathon by Round Table India.
-                        </p>
-                        <p className="text-blue-100 text-sm leading-relaxed font-light italic">
-                            Run with heart. Run for education.
+                        <h3 className="font-bold text-base sm:text-xl mb-2 sm:mb-4 text-white">Bhaag Dilli Bhaag</h3>
+                        <p className="text-blue-100 text-xs sm:text-sm leading-relaxed font-light px-4 sm:px-0">
+                            A purpose-driven marathon by Round Table India. <span className="hidden sm:inline">Run for education.</span>
                         </p>
                     </div>
 
                     {/* Quick Links */}
-                    <div className="text-center sm:text-left">
-                        <h4 className="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-white uppercase tracking-wider text-sm">Event</h4>
-                        <ul className="space-y-2 sm:space-y-3 text-blue-100 font-light text-sm">
+                    <div className="text-left sm:text-left pl-4 sm:pl-0">
+                        <h4 className="font-bold text-xs sm:text-lg mb-4 sm:mb-6 text-white uppercase tracking-wider">Event</h4>
+                        <ul className="space-y-2 sm:space-y-3 text-blue-100 font-light text-xs sm:text-sm">
                             <li><Link href="/" className="hover:text-white transition-colors hover:underline">Home</Link></li>
                             <li><Link href="/#about" className="hover:text-white transition-colors hover:underline">About Us</Link></li>
                             <li><Link href="/#route" className="hover:text-white transition-colors hover:underline">Race Route</Link></li>
                         </ul>
                     </div>
 
-                    <div className="text-center sm:text-left">
-                        <h4 className="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-white uppercase tracking-wider text-sm">Support</h4>
-                        <ul className="space-y-2 sm:space-y-3 text-blue-100 font-light text-sm">
-                            <li><Link href="/#contact" className="hover:text-white transition-colors hover:underline">Contact Us</Link></li>
+                    <div className="text-left sm:text-left">
+                        <h4 className="font-bold text-xs sm:text-lg mb-4 sm:mb-6 text-white uppercase tracking-wider">Support</h4>
+                        <ul className="space-y-2 sm:space-y-3 text-blue-100 font-light text-xs sm:text-sm">
+                            <li><Link href="/#contact" className="hover:text-white transition-colors hover:underline">Contact</Link></li>
                             <li><Link href="/faq" className="hover:text-white transition-colors hover:underline">FAQs</Link></li>
-                            <li><Link href="/terms-and-conditions" className="hover:text-white transition-colors hover:underline">Terms & Conditions</Link></li>
-                            <li><Link href="/privacy-policy" className="hover:text-white transition-colors hover:underline">Privacy Policy</Link></li>
+                            <li><Link href="/terms-and-conditions" className="hover:text-white transition-colors hover:underline">Terms</Link></li>
+                            <li><Link href="/privacy-policy" className="hover:text-white transition-colors hover:underline">Privacy</Link></li>
                         </ul>
                     </div>
 
                     {/* Contact / Social */}
-                    <div className="text-center sm:text-left">
-                        <h4 className="font-bold text-base sm:text-lg mb-4 sm:mb-6 text-white uppercase tracking-wider text-sm">Connect</h4>
+                    <div className="col-span-2 lg:col-span-1 text-center sm:text-left mt-4 sm:mt-0">
+                        <h4 className="font-bold text-xs sm:text-lg mb-4 sm:mb-6 text-white uppercase tracking-wider hidden sm:block">Connect</h4>
                         <div className="flex space-x-3 sm:space-x-4 mb-4 sm:mb-6 justify-center sm:justify-start">
                             <a
                                 href="https://instagram.com/bhaagdillibhaag"
@@ -86,12 +83,13 @@ export default function Footer() {
                                 className="w-10 h-10 bg-white/20 hover:bg-white hover:text-blue-900 rounded-full flex items-center justify-center transition-all backdrop-blur-sm border border-white/30 hover:scale-110 shadow-lg text-white"
                                 title="Facebook"
                             >
-                                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.791-4.667 4.532-4.667 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+                                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.791-4.667 4.532-4.667 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
                             </a>
                         </div>
-                        <p className="text-blue-100 text-[10px] uppercase tracking-widest opacity-70 mb-2">Connect with us</p>
-                        <p className="text-blue-100 text-xs mb-1">Instagram: @bhaagdillibhaag</p>
-                        <p className="text-blue-100 text-xs">Email: info@bhaagdillibhaag.in</p>
+                        <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 text-blue-100">
+                            <p className="text-[10px] sm:text-xs text-right sm:text-left pr-4 sm:pr-0">Instagram: @bhaagdillibhaag</p>
+                            <p className="text-[10px] sm:text-xs text-left">Email: info@bhaagdillibhaag.in</p>
+                        </div>
                     </div>
                 </div>
 

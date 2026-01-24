@@ -50,15 +50,15 @@ export default function Benefits() {
                     <div className="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-8">
                     {benefits.map((benefit, index) => (
                         <div
                             key={index}
-                            className="group flex flex-col items-center text-center p-6 hover:bg-blue-50 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                            className="group flex flex-col items-center text-center p-4 sm:p-6 hover:bg-blue-50 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                         >
                             {/* Icon Container */}
-                            <div className="relative w-20 h-20 sm:w-24 sm:h-24 mb-4 flex items-center justify-center bg-white rounded-2xl shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
-                                <div className="relative w-14 h-14 sm:w-16 sm:h-16">
+                            <div className="relative w-16 h-16 sm:w-24 sm:h-24 mb-3 sm:mb-4 flex items-center justify-center bg-white rounded-2xl shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                                <div className="relative w-10 h-10 sm:w-16 sm:h-16">
                                     <Image
                                         src={benefit.icon}
                                         alt={benefit.title}
@@ -69,11 +69,11 @@ export default function Benefits() {
                             </div>
 
                             {/* Content */}
-                            <div>
-                                <h3 className="font-bold text-gray-900 text-base sm:text-lg mb-2 group-hover:text-blue-900 transition-colors">
+                            <div className="flex flex-col flex-1">
+                                <h4 className="font-bold text-gray-900 text-xs sm:text-lg mb-1 sm:mb-2 group-hover:text-blue-900 transition-colors leading-tight">
                                     {benefit.title}
-                                </h3>
-                                <p className="text-gray-600 font-light text-sm leading-relaxed">
+                                </h4>
+                                <p className="text-gray-500 font-light text-[10px] sm:text-sm leading-tight sm:leading-relaxed px-1">
                                     {benefit.description}
                                 </p>
                             </div>
