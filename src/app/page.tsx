@@ -10,8 +10,8 @@ import Partners from '@/components/Partners';
 
 export const metadata: Metadata = {
   title: 'Bhaag Dilli Bhaag 2026 | North Delhi\'s Biggest Running Event',
-  description: 'Join North Delhi\'s premier running event on 1st March 2026 at Japanese Park, Rohini. Choose from 2K, 5K, or 10K races. Supporting Freedom Through Education initiative.',
-  keywords: 'running event, marathon, Dilli, Rohini, Japanese Park, 2K run, 5K run, 10K run, fitness, charity run',
+  description: 'Join North Delhi\'s premier running event on 1st March 2026 at Sector-10, Rohini. Choose from 2K, 5K, or 10K races. Supporting Freedom Through Education initiative.',
+  keywords: 'running event, marathon, Dilli, Rohini, Sector-10, 2K run, 5K run, 10K run, fitness, charity run',
   openGraph: {
     title: 'Bhaag Dilli Bhaag 2026',
     description: 'North Delhi\'s Biggest Running Event - 1st March 2026',

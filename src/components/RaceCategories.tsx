@@ -19,7 +19,7 @@ export default function RaceCategories() {
             distance: "5 KM",
             raceKey: "5KM",
             title: "Fitness Run",
-            description: "A timed run for those ready to challenge themselves while running for a meaningful cause. Push your limits and support Round Table India's Freedom Through Education mission.",
+            description: "A timed run for those ready to challenge themselves while running for a meaningful cause. Push your limits and support Table 313's Freedom Through Education mission.",
             age: "10 years and above"
         },
         {

@@ -56,7 +56,7 @@ export default function RegisterPage() {
                             Bhaag Dilli Bhaag 2026
                         </h1>
                         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 font-light">
-                            2K · 5K · 10K | 1st March 2026 | Japanese Park, Rohini
+                            2K · 5K · 10K | 1st March 2026 | Sector-10, Rohini
                         </p>
                     </div>
                 </section>

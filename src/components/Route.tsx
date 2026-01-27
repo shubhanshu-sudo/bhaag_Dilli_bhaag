@@ -9,7 +9,7 @@ const routes = [
         id: '2km',
         label: '2 KM',
         distance: '2.0 KM',
-        description: 'Perfect for families and fun runners. A quick loop around the scenic Japanese Park.',
+        description: 'Perfect for families and fun runners. A quick loop around the scenic Sector-10 park area.',
         image: '/2km.png',
         color: '#1e3a8a'
     },
@@ -64,7 +64,7 @@ export default function Route() {
                             The Route
                         </h2>
                         <p className="text-base sm:text-xl text-gray-600 font-light leading-relaxed mb-4 sm:mb-6">
-                            Set within Japanese Park, Rohini, the course offers a calm, green, and runner-friendly environment. Wide paths and flat terrain make it ideal for both new runners and those chasing personal milestones.
+                            Set within Sector-10, Rohini, the course offers a calm, green, and runner-friendly environment. Wide paths and flat terrain make it ideal for both new runners and those chasing personal milestones.
                         </p>
                         <p className="text-base text-gray-600 font-medium leading-relaxed mb-8 italic border-l-4 border-yellow-400 pl-4">
                             Every step you take here is part of a larger journey beyond the park.
@@ -84,7 +84,7 @@ export default function Route() {
                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                                 </div>
                                 <h4 className="font-bold text-gray-900 text-lg mb-1">Greenery</h4>
-                                <p className="text-sm text-gray-500 font-light leading-snug">Run through the lush landscape of Japanese Park.</p>
+                                <p className="text-sm text-gray-500 font-light leading-snug">Run through the lush landscape of Sector-10.</p>
                             </div>
                         </div>
                     </div>
@@ -157,7 +157,7 @@ export default function Route() {
                                         </div>
                                         <div>
                                             <div className="text-sm sm:text-lg font-black text-indigo-950 uppercase tracking-tighter">Rohini Sector 10</div>
-                                            <div className="text-[8px] sm:text-xs text-indigo-600 font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] leading-none">Japanese Park, New Delhi</div>
+                                            <div className="text-[8px] sm:text-xs text-indigo-600 font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] leading-none">Sector-10, New Delhi</div>
                                         </div>
                                     </div>
 

@@ -40,7 +40,7 @@ export default function About() {
                                 This marathon brings runners, families, and communities together for a shared purpose. What starts as a race becomes a story of hope, effort, and collective responsibility toward a better future for underprivileged children.
                             </p>
                             <p>
-                                Organized by Round Table India 313, Bhaag Dilli Bhaag supports the larger vision of <span className="font-semibold text-blue-800">Freedom Through Education</span>. The initiative focuses on building schools and strengthening classroom infrastructure, helping create safe and supportive spaces where children can learn, grow, and dream.
+                                Organised by Delhi Amigos around Table 313, Bhaag Dilli Bhaag supports the larger vision of <span className="font-semibold text-blue-800">Freedom Through Education</span>. The initiative focuses on building schools and strengthening classroom infrastructure, helping create safe and supportive spaces where children can learn, grow, and dream.
                             </p>
                             <p className="font-medium text-gray-700 italic border-l-4 border-blue-100 pl-4 py-1">
                                 This run is not about how fast you finish.<br />
@@ -49,10 +49,7 @@ export default function About() {
                         </div>
 
                         <div className="mt-8 sm:mt-10">
-                            <button className="text-blue-700 font-bold hover:text-blue-900 flex items-center gap-2 transition-colors">
-                                Learn More
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                            </button>
+
                         </div>
                     </div>
 

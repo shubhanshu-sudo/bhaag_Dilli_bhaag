@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 const faqs = [
     {
         question: "What is Bhaag Dilli Bhaag?",
-        answer: "Bhaag Dilli Bhaag is a charity marathon organized by Round Table India. It brings together runners, families, and communities to support the larger cause of Freedom Through Education and create meaningful social impact through participation."
+        answer: "Bhaag Dilli Bhaag is a charity marathon organised by Delhi Amigos around Table 313. It brings together runners, families, and communities to support the larger cause of Freedom Through Education and create meaningful social impact through participation."
     },
     {
         question: "When and where will the event take place?",

@@ -44,7 +44,7 @@ export default function TermsAndConditionsPage() {
                             {/* Introduction */}
                             <div className="mb-8 p-5 bg-blue-50 rounded-xl border-l-4 border-blue-600">
                                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                                    By registering for and participating in Bhaag Dilli Bhaag, a charity marathon organized by Round Table India, you agree to the following:
+                                    By registering for and participating in Bhaag Dilli Bhaag, a charity marathon organised by Delhi Amigos around Table 313, you agree to the following:
                                 </p>
                             </div>
 
