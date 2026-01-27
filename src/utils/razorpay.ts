@@ -39,6 +39,9 @@ interface CreateOrderResponse {
     success: boolean;
     orderId: string;
     amount: number;
+    baseAmount: number;      // Registration fee (what merchant receives)
+    gatewayFee: number;      // Payment gateway charges  
+    chargedAmount: number;   // Total charged to user
     currency: string;
     receipt: string;
     raceCategory: string;
@@ -207,9 +210,10 @@ export const initiateRazorpayPayment = async (params: {
         }
 
         // Step 4: Open Razorpay checkout
+        // Note: Backend returns chargedAmount which already includes gateway fee
         const options: RazorpayOptions = {
             key: razorpayKey,
-            amount: orderData.amount * 100, // Convert to paise
+            amount: orderData.chargedAmount * 100, // Convert to paise (chargedAmount includes gateway fee)
             currency: orderData.currency,
             name: 'Bhaag Dilli Bhaag 2026',
             description: `${params.raceCategory} Race Registration`,

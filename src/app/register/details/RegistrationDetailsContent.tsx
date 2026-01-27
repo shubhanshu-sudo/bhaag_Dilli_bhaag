@@ -241,9 +241,9 @@ export function RegistrationDetailsContent() {
 
             if (data.success) {
                 // Show success message
-                showToast('success', 'Registration submitted successfully! Redirecting to payment...');
+                showToast('success', 'Registration submitted successfully! Redirecting to checkout...');
 
-                // Store registration data for payment page
+                // Store registration data for checkout/payment page
                 localStorage.setItem('registrationId', data.registrationId);
                 localStorage.setItem('registrationData', JSON.stringify({
                     ...formData,
@@ -254,9 +254,9 @@ export function RegistrationDetailsContent() {
                     includes: raceDetails.includes
                 }));
 
-                // Redirect to payment page after a brief delay
+                // Redirect to checkout page (shows price breakdown) after a brief delay
                 setTimeout(() => {
-                    router.push(`/register/payment?rid=${data.registrationId}`);
+                    router.push(`/register/checkout?rid=${data.registrationId}`);
                 }, 1000);
             } else {
                 showToast('error', data.message || 'Registration failed. Please try again.');

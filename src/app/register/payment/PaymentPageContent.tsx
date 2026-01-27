@@ -23,6 +23,7 @@ export function PaymentPageContent() {
     const [errorMessage, setErrorMessage] = useState('');
     const [paymentIds, setPaymentIds] = useState({ paymentId: '', orderId: '' });
     const [isDownloading, setIsDownloading] = useState(false);
+    const [chargedAmount, setChargedAmount] = useState<number | null>(null);
     const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
     // Poll payment status
@@ -43,6 +44,10 @@ export function PaymentPageContent() {
                         paymentId: data.razorpayPaymentId || 'N/A',
                         orderId: data.razorpayOrderId || 'N/A'
                     });
+                    // Store charged amount if available
+                    if (data.chargedAmount) {
+                        setChargedAmount(data.chargedAmount);
+                    }
                     showToast('success', 'Payment confirmed! Your registration is complete.');
 
                     // Clear localStorage
@@ -401,7 +406,7 @@ export function PaymentPageContent() {
                                             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 py-4 bg-gradient-to-r from-blue-50 to-white rounded-xl px-4 mt-4 border border-blue-50">
                                                 <span className="text-gray-600 font-bold text-sm">Amount Paid</span>
                                                 <div className="flex items-baseline gap-1">
-                                                    <span className="font-black text-3xl sm:text-4xl text-blue-900">₹{registrationData.amount}</span>
+                                                    <span className="font-black text-3xl sm:text-4xl text-blue-900">₹{chargedAmount || registrationData.amount}</span>
                                                     <span className="text-gray-500 text-xs sm:text-sm font-bold">.00</span>
                                                 </div>
                                             </div>
