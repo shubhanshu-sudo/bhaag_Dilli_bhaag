@@ -12,6 +12,8 @@ export default function Partners() {
         { id: 15, path: "/image_15/image_15_1_5x.webp", type: "Corporate Sponsor" },
         { id: 18, path: "/image_18/image_18_1_5x.webp", type: "Community Partner" },
         { id: 20, path: "/whatsapp_image_2025_12_05_at_13_42_19_22066bac_1/whatsapp_image_2025_12_05_at_13_42_19_22066bac_1_1_5x.webp", type: "Principal Sponsor" },
+        { id: 21, path: "/Unified-Sports-green-logo-png-1-Custom.png.webp", type: "Official Partner" },
+        { id: 22, path: "/Frame 3.png", type: "Official Partner" },
     ];
 
     return (
@@ -30,18 +32,18 @@ export default function Partners() {
                     </p>
                 </div>
 
-                {/* Partners Grid - Compact 2-column on mobile, balanced on desktop */}
-                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
+                {/* Partners Grid - Compact 2-column on mobile, 4-column on desktop */}
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
                     {sponsors.map((partner) => (
                         <div
                             key={partner.id}
-                            className="group relative flex flex-col items-center justify-center p-5 sm:p-12 bg-white rounded-2xl sm:rounded-[3rem] border border-gray-100 transition-all duration-700 hover:shadow-[0_40px_80px_-15px_rgba(30,58,138,0.15)] hover:-translate-y-2 sm:hover:-translate-y-3 cursor-pointer overflow-hidden"
+                            className="group relative flex flex-col items-center justify-center p-4 sm:p-8 bg-white rounded-2xl sm:rounded-[2.5rem] border border-gray-100 transition-all duration-700 hover:shadow-[0_40px_80px_-15px_rgba(30,58,138,0.15)] hover:-translate-y-2 sm:hover:-translate-y-3 cursor-pointer overflow-hidden"
                         >
                             {/* Animated Background Gradient */}
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-                            {/* Image Container - Restricted height on mobile */}
-                            <div className="relative w-full h-12 sm:h-auto sm:aspect-[4/3] flex items-center justify-center z-10">
+                            {/* Image Container - Reduced height for compact display */}
+                            <div className="relative w-full h-10 sm:h-auto sm:aspect-[3/2] flex items-center justify-center z-10">
                                 <Image
                                     src={partner.path}
                                     alt={`Partner ${partner.id}`}
