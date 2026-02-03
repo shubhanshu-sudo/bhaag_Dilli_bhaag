@@ -12,9 +12,9 @@ export default function Hero() {
             */}
             <div className="relative lg:absolute top-0 right-0 w-full lg:w-[60%] h-[50vh] sm:h-[55vh] lg:h-full z-0 flex-shrink-0">
                 <img
-                    src="/common5.jpg"
-                    alt="Bhaag Dilli Bhaag Running Event"
-                    className="w-full h-full object-cover object-[center_20%] lg:object-center"
+                    src="/Gemini_Generated_Image_1i8c2u1i8c2u1i8c.webp"
+                    alt="Bhaag Dilli Bhaag Running Event - Marathon Finish Line"
+                    className="w-full h-full object-cover object-[center_35%] lg:object-center"
                 />
                 {/* Desktop Gradients */}
                 <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white via-white/40 to-transparent"></div>
