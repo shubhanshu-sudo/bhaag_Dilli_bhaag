@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "@/contexts/ToastContext";
 import ToastContainer from "@/components/Toast";
+import MetaPixel from "@/components/MetaPixel";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -87,6 +88,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
+        <MetaPixel />
         <ToastProvider>
           {children}
           <ToastContainer />
