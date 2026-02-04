@@ -80,7 +80,7 @@ export default function Hero() {
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <span className="uppercase tracking-wider text-[10px] sm:text-sm text-gray-400 w-12 sm:w-16 flex-shrink-0">Venue</span>
-                                    <span className="text-gray-900">Sector-10, Rohini</span>
+                                    <span className="text-gray-900"> Metro Wallk Sector-10, Rohini</span>
                                 </div>
                             </div>
 
