@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
+import VideoTeaser from '@/components/VideoTeaser';
 import About from '@/components/About';
 import Benefits from '@/components/Benefits';
 import RaceCategories from '@/components/RaceCategories';
@@ -25,6 +26,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <VideoTeaser />
         <About />
         <Benefits />
         <RaceCategories />
