@@ -114,7 +114,7 @@ export default function EmailModal({ isOpen, onClose, raceKey }: EmailModalProps
                     </div>
 
                     <p className="text-gray-600 mb-8 font-light text-base leading-relaxed">
-                        Enter your email to continue. We'll check if you have an existing registration to save you time.
+                        Enter your email to continue. We'll check if you have an existing registration to save your time.
                     </p>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
