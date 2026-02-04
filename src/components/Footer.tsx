@@ -40,7 +40,7 @@ export default function Footer() {
                         <h3 className="font-bold text-base sm:text-xl mb-2 sm:mb-4 text-white">Bhaag Dilli Bhaag</h3>
                         <p className="text-blue-100 text-xs sm:text-sm leading-relaxed font-light px-4 sm:px-0">
                             A purpose driven marathon by Round Table India.
-                            Run with heart.
+                            Run with heart. &nbsp;
                             <span className="hidden sm:inline">Run for education.</span>
                         </p>
                     </div>
