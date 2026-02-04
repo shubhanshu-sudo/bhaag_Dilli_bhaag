@@ -13,7 +13,7 @@ export default function About() {
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] transform rotate-1 hover:rotate-0 transition-all duration-500">
                             {/* Using local image from public folder */}
                             <Image
-                                src="/photo-1642140076947-7d410aaaa911.avif"
+                                src="https://static.wixstatic.com/media/e84d26_57f75b16f4414f9c92b6c4a2adf6bfe0~mv2.webp"
                                 alt="Bhaag Dilli Bhaag Marathon"
                                 fill
                                 className="object-cover"
