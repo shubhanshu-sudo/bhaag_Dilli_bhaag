@@ -3,8 +3,16 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-    title: 'Terms & Conditions - Bhaag Dilli Bhaag 2026',
-    description: 'Terms and Conditions for participating in Bhaag Dilli Bhaag 2026 marathon event.',
+    title: 'Terms & Conditions | Bhaag Dilli Bhaag 2026',
+    description: 'Terms and Conditions for participating in Bhaag Dilli Bhaag 2026 marathon event. Please read the rules and regulations carefully before registering.',
+    alternates: {
+        canonical: 'https://www.bhaagdillibhaag.in/terms-and-conditions',
+    },
+    openGraph: {
+        title: 'Terms & Conditions | Bhaag Dilli Bhaag 2026',
+        description: 'Read the official terms and conditions for Bhaag Dilli Bhaag 2026.',
+        url: 'https://www.bhaagdillibhaag.in/terms-and-conditions',
+    },
 };
 
 export default function TermsAndConditionsPage() {

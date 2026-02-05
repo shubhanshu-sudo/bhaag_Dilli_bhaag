@@ -11,15 +11,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Bhaag Dilli Bhaag - North Delhi's Biggest Running Event",
+  metadataBase: new URL('https://www.bhaagdillibhaag.in'),
+  title: {
+    default: "Bhaag Dilli Bhaag - North Delhi's Biggest Running Event",
+    template: "%s | Bhaag Dilli Bhaag"
+  },
   description: "Join Bhaag Dilli Bhaag 2026 on 1st March at Sector-10, Rohini. Every step helps build classrooms for underprivileged children. Register now for 2KM, 5KM, or 10KM races.",
-  keywords: ["Bhaag Dilli Bhaag", "Delhi Marathon", "Running Event", "Rohini Marathon", "Charity Run", "Delhi Running Event 2026"],
+  keywords: ["Bhaag Dilli Bhaag", "Delhi Marathon", "Running Event", "Rohini Marathon", "Charity Run", "Delhi Running Event 2026", "Round Table India", "RTI"],
   authors: [{ name: "Bhaag Dilli Bhaag" }],
   creator: "Bhaag Dilli Bhaag",
   publisher: "Bhaag Dilli Bhaag",
-  metadataBase: new URL('https://www.bhaagdillibhaag.in'),
 
-  // Favicon Configuration - Updated with logo.png
+  // Favicon Configuration
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -47,9 +50,9 @@ export const metadata: Metadata = {
     siteName: "Bhaag Dilli Bhaag",
     images: [
       {
-        url: "/logo.png",
-        width: 512,
-        height: 512,
+        url: "/Untitled-1-01.webp",
+        width: 1200,
+        height: 630,
         alt: "Bhaag Dilli Bhaag Logo",
       },
     ],
@@ -60,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Bhaag Dilli Bhaag - North Delhi's Biggest Running Event",
     description: "Join us on 1st March 2026. Every step helps build classrooms for underprivileged children.",
-    images: ["/logo.png"],
+    images: ["/Untitled-1-01.webp"],
   },
 
   // Additional SEO
@@ -77,7 +80,7 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    google: "your-google-verification-code", // Add your Google Search Console verification code
+    google: "your-google-verification-code", // Handle via search console or meta tag
   },
 };
 

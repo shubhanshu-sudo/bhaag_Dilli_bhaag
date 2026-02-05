@@ -3,8 +3,16 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-    title: 'Privacy Policy - Bhaag Dilli Bhaag 2026',
-    description: 'Privacy Policy for Bhaag Dilli Bhaag 2026 marathon event.',
+    title: 'Privacy Policy | Bhaag Dilli Bhaag 2026',
+    description: 'Privacy Policy for Bhaag Dilli Bhaag 2026. Learn how we handle your personal information and data during the marathon registration and event.',
+    alternates: {
+        canonical: 'https://www.bhaagdillibhaag.in/privacy-policy',
+    },
+    openGraph: {
+        title: 'Privacy Policy | Bhaag Dilli Bhaag 2026',
+        description: 'Your privacy matters to us. Read how we protect your data.',
+        url: 'https://www.bhaagdillibhaag.in/privacy-policy',
+    },
 };
 
 export default function PrivacyPolicyPage() {
