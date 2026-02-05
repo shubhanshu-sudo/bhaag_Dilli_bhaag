@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Bhaag Dilli Bhaag" }],
   creator: "Bhaag Dilli Bhaag",
   publisher: "Bhaag Dilli Bhaag",
-  metadataBase: new URL('https://bhaagdillibhaag.in'),
+  metadataBase: new URL('https://www.bhaagdillibhaag.in'),
 
   // Favicon Configuration
   icons: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://bhaagdillibhaag.in",
+    url: "https://www.bhaagdillibhaag.in",
     title: "Bhaag Dilli Bhaag - North Delhi's Biggest Running Event",
     description: "Join us on 1st March 2026 at Sector-10, Rohini. Every step helps build classrooms for underprivileged children.",
     siteName: "Bhaag Dilli Bhaag",

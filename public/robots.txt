@@ -1,0 +1,23 @@
+# Robots.txt for Bhaag Dilli Bhaag
+# https://www.bhaagdillibhaag.in/robots.txt
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow admin pages from being indexed
+Disallow: /admin/
+Disallow: /admin/login
+Disallow: /admin/registrations
+
+# Disallow transactional/checkout pages from being indexed
+Disallow: /register/checkout
+Disallow: /register/details
+Disallow: /register/payment
+Disallow: /register/retry-payment
+
+# Disallow demo/test pages
+Disallow: /toast-demo
+
+# Sitemap location
+Sitemap: https://www.bhaagdillibhaag.in/sitemap.xml
