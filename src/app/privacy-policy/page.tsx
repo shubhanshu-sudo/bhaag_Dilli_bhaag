@@ -15,9 +15,32 @@ export const metadata: Metadata = {
     },
 };
 
+const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.bhaagdillibhaag.in"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Privacy Policy",
+            "item": "https://www.bhaagdillibhaag.in/privacy-policy"
+        }
+    ]
+};
+
 export default function PrivacyPolicyPage() {
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
             <Navbar />
             <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
                 {/* Hero Header */}

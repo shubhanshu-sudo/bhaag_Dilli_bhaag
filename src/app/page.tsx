@@ -24,6 +24,24 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Bhaag Dilli Bhaag",
+  "url": "https://www.bhaagdillibhaag.in",
+  "logo": "https://www.bhaagdillibhaag.in/Untitled-1-01.webp",
+  "sameAs": [
+    "https://www.instagram.com/bhaagdillibhaag/",
+    "https://www.youtube.com/@BhaagDilliBhaag",
+    "https://www.facebook.com/profile.php?id=61587329426324"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "info@bhaagdillibhaag.in",
+    "contactType": "customer service"
+  }
+};
+
 const sportsEventSchema = {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
@@ -58,6 +76,10 @@ const sportsEventSchema = {
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sportsEventSchema) }}
