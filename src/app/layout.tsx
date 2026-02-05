@@ -19,20 +19,21 @@ export const metadata: Metadata = {
   publisher: "Bhaag Dilli Bhaag",
   metadataBase: new URL('https://www.bhaagdillibhaag.in'),
 
-  // Favicon Configuration
+  // Favicon Configuration - Updated with logo.png
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "32x32" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
     ],
     shortcut: "/favicon.ico",
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
     other: [
-      { rel: "android-chrome-192x192", url: "/android-chrome-192x192.png" },
-      { rel: "android-chrome-512x512", url: "/android-chrome-512x512.png" },
+      { rel: "icon", url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { rel: "icon", url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
     ],
   },
 
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "Bhaag Dilli Bhaag",
     images: [
       {
-        url: "/android-chrome-512x512.png",
+        url: "/logo.png",
         width: 512,
         height: 512,
         alt: "Bhaag Dilli Bhaag Logo",
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Bhaag Dilli Bhaag - North Delhi's Biggest Running Event",
     description: "Join us on 1st March 2026. Every step helps build classrooms for underprivileged children.",
-    images: ["/android-chrome-512x512.png"],
+    images: ["/logo.png"],
   },
 
   // Additional SEO
@@ -87,6 +88,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Additional favicon links for better browser compatibility */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
       <body className={`${inter.className} antialiased`}>
         <MetaPixel />
         <ToastProvider>
@@ -97,4 +106,3 @@ export default function RootLayout({
     </html>
   );
 }
-
