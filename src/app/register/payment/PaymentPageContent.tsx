@@ -328,8 +328,20 @@ export function PaymentPageContent() {
                     {paymentStatus === 'success' && (
                         <div className="animate-in fade-in zoom-in-95 duration-700">
                             {/* Success Header */}
-                            <div className="text-center mb-6 sm:mb-10 pt-4 px-4">
-                                <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-green-100 rounded-full mb-4 sm:mb-6 shadow-lg">
+                            <div className="text-center mb-6 sm:mb-10 pt-4 px-4 flex flex-col items-center">
+                                {/* Success Logo */}
+                                <div className="mb-8 transition-transform hover:scale-110 duration-500">
+                                    <div className="relative w-48 h-12 sm:w-56 sm:h-14 lg:w-64 lg:h-16">
+                                        <Image
+                                            src="/Untitled-1-01.webp"
+                                            alt="Bhaag Dilli Bhaag Logo"
+                                            fill
+                                            className="object-contain"
+                                            priority
+                                        />
+                                    </div>
+                                </div>
+                                <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-green-100 rounded-full mb-4 sm:mb-6 shadow-lg animate-bounce-subtle">
                                     <svg className="w-10 h-10 sm:w-12 sm:h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                                     </svg>
@@ -349,13 +361,14 @@ export function PaymentPageContent() {
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 sm:mb-10 relative z-10 border-b border-gray-100 pb-6">
                                     <div className="flex items-center gap-4">
                                         <div className="bg-white p-2 rounded-xl shadow-sm border border-gray-100 transition-transform hover:scale-105">
-                                            <Image
-                                                src="/Untitled-1-01.webp"
-                                                alt="Bhaag Dilli Bhaag Logo"
-                                                width={100}
-                                                height={40}
-                                                className="object-contain"
-                                            />
+                                            <div className="relative w-28 h-8">
+                                                <Image
+                                                    src="/Untitled-1-01.webp"
+                                                    alt="Bhaag Dilli Bhaag Logo"
+                                                    fill
+                                                    className="object-contain"
+                                                />
+                                            </div>
                                         </div>
                                         <div>
                                             <h2 className="text-xl sm:text-2xl font-black text-blue-900 tracking-tight">
