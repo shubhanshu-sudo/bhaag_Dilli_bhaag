@@ -155,7 +155,7 @@ export const verifyRazorpayPayment = async (
 /**
  * Open Razorpay checkout
  * 
- * @param options - Razorpay checkout options
+ * @param options - 
  */
 export const openRazorpayCheckout = (options: RazorpayOptions): void => {
     if (!window.Razorpay) {
