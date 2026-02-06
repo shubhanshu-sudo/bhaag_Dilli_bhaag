@@ -38,10 +38,14 @@ interface RazorpayResponse {
 interface CreateOrderResponse {
     success: boolean;
     orderId: string;
-    amount: number;
-    baseAmount: number;      // Registration fee (what merchant receives)
-    gatewayFee: number;      // Payment gateway charges  
-    chargedAmount: number;   // Total charged to user
+    paymentSummary: {
+        baseAmount: number;
+        discountAmount: number;
+        discountedAmount: number;
+        gatewayCharges: number;
+        finalPayableAmount: number;
+        couponCode: string | null;
+    };
     currency: string;
     receipt: string;
     raceCategory: string;
@@ -86,11 +90,13 @@ export const loadRazorpayScript = (): Promise<boolean> => {
  * 
  * @param raceCategory - Race category (2KM, 5KM, 10KM)
  * @param registrationId - Registration ID to link payment
+ * @param couponCode - Optional coupon code
  * @returns Order details from backend
  */
 export const createRazorpayOrder = async (
     raceCategory: string,
-    registrationId: string
+    registrationId: string,
+    couponCode?: string | null
 ): Promise<CreateOrderResponse> => {
     const response = await fetch(API_ENDPOINTS.PAYMENT.CREATE_ORDER, {
         method: 'POST',
@@ -99,7 +105,8 @@ export const createRazorpayOrder = async (
         },
         body: JSON.stringify({
             raceCategory,
-            registrationId // CRITICAL: Send registrationId to store in order notes
+            registrationId,
+            couponCode // Send coupon code to apply discount on server
         }),
     });
 
@@ -174,7 +181,7 @@ export const openRazorpayCheckout = (options: RazorpayOptions): void => {
 export const initiateRazorpayPayment = async (params: {
     raceCategory: string;
     registrationId: string;
-    amount: number;
+    couponCode?: string | null;
     userDetails: {
         name: string;
         email: string;
@@ -192,10 +199,13 @@ export const initiateRazorpayPayment = async (params: {
             throw new Error('Failed to load Razorpay SDK. Please check your internet connection.');
         }
 
-        // Step 2: Create order on backend with registrationId
+        // Step 2: Create order on backend with registrationId and coupon
+        console.log(`📡 [FRONTEND] Initiating order creation for ${params.raceCategory} with coupon: ${params.couponCode || 'None'}`);
+
         const orderData = await createRazorpayOrder(
             params.raceCategory,
-            params.registrationId // Pass registrationId to store in order notes
+            params.registrationId,
+            params.couponCode
         );
 
         // Notify that order is created (transition to 'processing' state)
@@ -209,12 +219,14 @@ export const initiateRazorpayPayment = async (params: {
             throw new Error('Razorpay key not configured');
         }
 
+        const finalAmount = orderData.paymentSummary.finalPayableAmount;
+        console.log(`💰 [FRONTEND SOURCE OF TRUTH] Razorpay Modal Amount: ₹${finalAmount}`);
+
         // Step 4: Open Razorpay checkout
-        // Note: Backend returns chargedAmount which already includes gateway fee
         const options: RazorpayOptions = {
             key: razorpayKey,
-            amount: orderData.chargedAmount * 100, // Convert to paise (chargedAmount includes gateway fee)
-            currency: orderData.currency,
+            amount: finalAmount * 100, // Convert to paise
+            currency: orderData.currency || 'INR',
             name: 'Bhaag Dilli Bhaag 2026',
             description: `${params.raceCategory} Race Registration`,
             order_id: orderData.orderId,

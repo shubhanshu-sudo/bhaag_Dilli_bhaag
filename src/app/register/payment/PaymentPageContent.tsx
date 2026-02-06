@@ -132,10 +132,13 @@ export function PaymentPageContent() {
 
         setPaymentStatus('opening_gateway');
 
+        // Get coupon from URL search params
+        const couponFromUrl = searchParams.get('coupon');
+
         await initiateRazorpayPayment({
             raceCategory: registrationData.race,
             registrationId: registrationId,
-            amount: registrationData.amount,
+            couponCode: couponFromUrl, // Use coupon from URL
             userDetails: {
                 name: registrationData.fullName,
                 email: registrationData.email,

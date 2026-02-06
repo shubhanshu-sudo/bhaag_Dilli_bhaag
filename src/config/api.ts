@@ -36,6 +36,7 @@ export const API_ENDPOINTS = {
     // Public endpoints
     REGISTER: `${API_BASE_URL}/api/register`,
     CHECK_EMAIL: `${API_BASE_URL}/api/register/check-email`,
+    VALIDATE_COUPON: `${API_BASE_URL}/api/coupons/validate`,
 
     // Payment endpoints
     PAYMENT: {
@@ -50,6 +51,8 @@ export const API_ENDPOINTS = {
     ADMIN: {
         LOGIN: `${API_BASE_URL}/api/admin/login`,
         REGISTRATIONS: `${API_BASE_URL}/api/admin/registrations`,
+        COUPONS: `${API_BASE_URL}/api/admin/coupons`,
+        TOGGLE_COUPON_STATUS: (id: string) => `${API_BASE_URL}/api/admin/coupons/${id}/status`,
     },
 } as const;
 
