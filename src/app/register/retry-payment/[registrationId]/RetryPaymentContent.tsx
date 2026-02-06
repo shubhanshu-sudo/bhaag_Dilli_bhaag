@@ -79,7 +79,7 @@ export function RetryPaymentContent({ registrationId }: RetryPaymentContentProps
         await initiateRazorpayPayment({
             raceCategory: registrationData.race,
             registrationId: registrationId,
-            amount: registrationData.amount,
+            couponCode: registrationData.couponCode, // Pass existing coupon if any
             userDetails: {
                 name: registrationData.name, // Note: backend returns 'name'
                 email: registrationData.email,
