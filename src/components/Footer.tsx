@@ -25,9 +25,9 @@ export default function Footer() {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-4 sm:gap-10 lg:gap-12 xl:gap-16 mb-10 sm:mb-14 lg:mb-16 pb-10 sm:pb-14 lg:pb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-10 gap-x-4 sm:gap-10 lg:gap-8 xl:gap-12 mb-10 sm:mb-14 lg:mb-16 pb-10 sm:pb-14 lg:pb-16">
                     {/* Brand / Logo Area */}
-                    <div className="col-span-2 lg:col-span-1 text-center sm:text-left">
+                    <div className="col-span-1 sm:col-span-2 lg:col-span-1 text-center sm:text-left">
                         <div className="inline-block bg-white p-1.5 sm:p-2 rounded-xl mb-4 sm:mb-6 mx-auto sm:mx-0 transition-transform hover:scale-105 shadow-md">
                             <Image
                                 src="/Untitled-1-01.webp"
@@ -46,16 +46,17 @@ export default function Footer() {
                     </div>
 
                     {/* Quick Links */}
-                    <div className="text-left sm:text-left pl-4 sm:pl-0">
+                    <div className="text-left">
                         <h4 className="font-bold text-xs sm:text-lg mb-4 sm:mb-6 text-white uppercase tracking-wider">Event</h4>
                         <ul className="space-y-2 sm:space-y-3 text-blue-100 font-light text-xs sm:text-sm">
                             <li><Link href="/" className="hover:text-white transition-colors hover:underline">Home</Link></li>
                             <li><Link href="/#about" className="hover:text-white transition-colors hover:underline">About Us</Link></li>
                             <li><Link href="/#route" className="hover:text-white transition-colors hover:underline">Race Route</Link></li>
+                            <li><Link href="/#partners" className="hover:text-white transition-colors hover:underline">Our Partners</Link></li>
                         </ul>
                     </div>
 
-                    <div className="text-left sm:text-left">
+                    <div className="text-left">
                         <h4 className="font-bold text-xs sm:text-lg mb-4 sm:mb-6 text-white uppercase tracking-wider">Support</h4>
                         <ul className="space-y-2 sm:space-y-3 text-blue-100 font-light text-xs sm:text-sm">
                             <li><Link href="/#contact" className="hover:text-white transition-colors hover:underline">Contact</Link></li>
@@ -65,10 +66,45 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Contact / Social */}
-                    <div className="col-span-2 lg:col-span-1 text-center sm:text-left mt-4 sm:mt-0">
-                        <h4 className="font-bold text-xs sm:text-lg mb-4 sm:mb-6 text-white uppercase tracking-wider hidden sm:block">Connect</h4>
-                        <div className="flex space-x-3 sm:space-x-4 mb-4 sm:mb-6 justify-center sm:justify-start">
+                    {/* Contact - Unified Sports */}
+                    <address className="text-left not-italic">
+                        <h4 className="font-bold text-xs sm:text-lg mb-4 sm:mb-6 text-white uppercase tracking-wider">Contact – Unified Sports</h4>
+                        <p className="text-white text-xs sm:text-sm font-semibold mb-2">Unified Sports and Events</p>
+                        <p className="text-blue-100 text-[10px] sm:text-xs mb-4 leading-relaxed opacity-80">
+                            For all event-related and registration queries
+                        </p>
+                        <div className="space-y-3">
+                            <a
+                                href="tel:9599218680"
+                                className="flex items-center text-blue-100 hover:text-white transition-colors group"
+                                aria-label="Call Unified Sports at 9599218680"
+                            >
+                                <div className="w-7 h-7 bg-white/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-white/20 transition-all">
+                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <span className="text-xs sm:text-sm font-medium">9599218680</span>
+                            </a>
+                            <a
+                                href="mailto:info@bhaagdillibhaag.in"
+                                className="flex items-center text-blue-100 hover:text-white transition-colors group"
+                                aria-label="Email Unified Sports at info@bhaagdillibhaag.in"
+                            >
+                                <div className="w-7 h-7 bg-white/10 rounded-full flex items-center justify-center mr-3 group-hover:bg-white/20 transition-all">
+                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <span className="text-xs sm:text-sm font-medium truncate">info@bhaagdillibhaag.in</span>
+                            </a>
+                        </div>
+                    </address>
+
+                    {/* Connect / Social */}
+                    <div className="text-left sm:text-left">
+                        <h4 className="font-bold text-xs sm:text-lg mb-4 sm:mb-6 text-white uppercase tracking-wider">Connect</h4>
+                        <div className="flex space-x-3 sm:space-x-4 mb-4 sm:mb-6 justify-start">
                             <a
                                 href="https://www.instagram.com/bhaagdillibhaag/"
                                 target="_blank"
@@ -97,10 +133,7 @@ export default function Footer() {
                                 <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.791-4.667 4.532-4.667 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
                             </a>
                         </div>
-                        <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 text-blue-100">
-                            <p className="text-[10px] sm:text-xs text-right sm:text-left pr-4 sm:pr-0">Instagram: @bhaagdillibhaag</p>
-                            <p className="text-[10px] sm:text-xs text-left">Email: info@bhaagdillibhaag.in</p>
-                        </div>
+                        <p className="text-blue-100 text-[10px] sm:text-xs">Follow us for updates</p>
                     </div>
                 </div>
 
