@@ -139,7 +139,7 @@ export default function Footer() {
 
                 <div className="text-center pt-6 sm:pt-8 border-t border-white/20 mt-8">
                     <p className="text-blue-100 text-xs font-light leading-relaxed mb-3">
-                        Participation is voluntary and subject to the Terms & Conditions and Privacy Policy listed above.
+                        Participation  is voluntary and subject to the Terms & Conditions and Privacy Policy listed above.
                     </p>
                     <p className="text-white text-xs font-light tracking-wide">
                         © 2026 Bhaag Dilli Bhaag. All rights reserved.
