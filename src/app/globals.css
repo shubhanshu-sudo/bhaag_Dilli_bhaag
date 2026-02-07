@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-VariableFont.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+
 :root {
   --brand-blue: #1e40af;
   --brand-blue-dark: #1e3a8a;
@@ -18,8 +27,9 @@ html {
 body {
   background: #ffffff;
   color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-osx-font-smoothing: grayscale;
 }
 
 h1,
