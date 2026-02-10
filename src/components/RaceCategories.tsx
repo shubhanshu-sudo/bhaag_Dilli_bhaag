@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import EmailModal from './EmailModal';
+import { PrizeCard, prizeData } from './Prizes';
 
 export default function RaceCategories() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -79,6 +80,17 @@ export default function RaceCategories() {
                                     <p className="text-[10px] sm:text-sm font-semibold text-blue-900 bg-blue-50 md:bg-blue-100/50 inline-block px-3 py-1 rounded-full mb-6">
                                         Eligibility: {category.age}
                                     </p>
+
+                                    {/* Prize Visual for this category */}
+                                    <div className="mb-6 scale-90 origin-left">
+                                        {prizeData.find(p => p.raceKey === category.raceKey) && (
+                                            <PrizeCard
+                                                category={prizeData.find(p => p.raceKey === category.raceKey)}
+                                                showLabel={false}
+                                            />
+                                        )}
+                                    </div>
+
                                     <div className="block">
                                         <button
                                             onClick={() => handleRegisterClick(category.raceKey)}
