@@ -275,6 +275,8 @@ export default function AdminCouponsPage() {
                                     >
                                         <option value={10}>10% OFF</option>
                                         <option value={20}>20% OFF</option>
+                                        <option value={50}>50% OFF</option>
+                                        <option value={100}>100% OFF</option>
                                     </select>
                                 </div>
                                 <div className="flex items-center gap-3 py-2">
@@ -399,7 +401,9 @@ export default function AdminCouponsPage() {
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm font-bold text-gray-900">{coupon.discountValue}% OFF</div>
+                                                <div className={`text-sm font-bold ${coupon.discountValue === 100 ? 'text-green-600' : 'text-gray-900'}`}>
+                                                    {coupon.discountValue}% OFF
+                                                </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 {coupon.isActive ? (

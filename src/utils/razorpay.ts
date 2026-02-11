@@ -222,7 +222,42 @@ export const initiateRazorpayPayment = async (params: {
         const finalAmount = orderData.paymentSummary.finalPayableAmount;
         console.log(`💰 [FRONTEND SOURCE OF TRUTH] Razorpay Modal Amount: ₹${finalAmount}`);
 
-        // Step 4: Open Razorpay checkout
+        // Step 4: Handle 100% discount / Free registrations
+        if (finalAmount === 0) {
+            console.log('🎁 [FRONTEND] 100% Discount detected. Completing registration without Razorpay.');
+
+            try {
+                const response = await fetch(API_ENDPOINTS.PAYMENT.COMPLETE_FREE_REGISTRATION, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        registrationId: params.registrationId,
+                        couponCode: orderData.paymentSummary.couponCode
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    params.onSuccess({
+                        success: true,
+                        message: 'Free registration completed successfully',
+                        registrationId: params.registrationId,
+                        paymentStatus: 'paid'
+                    });
+                } else {
+                    throw new Error(data.message || 'Failed to complete free registration');
+                }
+            } catch (err) {
+                console.error('Free registration error:', err);
+                params.onFailure(err instanceof Error ? err : new Error('Failed to complete free registration'));
+            }
+            return;
+        }
+
+        // Step 5: Open Razorpay checkout for paid registrations
         const options: RazorpayOptions = {
             key: razorpayKey,
             amount: finalAmount * 100, // Convert to paise
@@ -232,7 +267,7 @@ export const initiateRazorpayPayment = async (params: {
             order_id: orderData.orderId,
             handler: async (response: RazorpayResponse) => {
                 try {
-                    // Step 5: Verify payment on backend
+                    // Step 6: Verify payment on backend
                     const verificationResponse = await verifyRazorpayPayment(
                         response,
                         params.registrationId

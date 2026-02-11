@@ -219,6 +219,15 @@ export function PaymentPageContent() {
     // Auto-initiate payment when loaded
     useEffect(() => {
         if (paymentStatus === 'idle' && registrationData) {
+            // Check if this is a free registration
+            const isFree = searchParams.get('free') === 'true';
+
+            if (isFree) {
+                setPaymentStatus('verifying');
+                startPolling(registrationId);
+                return;
+            }
+
             // Small delay to ensure UI is ready
             const timer = setTimeout(() => {
                 handlePayment();
@@ -226,7 +235,7 @@ export function PaymentPageContent() {
 
             return () => clearTimeout(timer);
         }
-    }, [paymentStatus, registrationData]);
+    }, [paymentStatus, registrationData, searchParams, registrationId]);
 
     return (
         <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 via-white to-blue-50">
@@ -422,7 +431,9 @@ export function PaymentPageContent() {
                                             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 py-4 bg-gradient-to-r from-blue-50 to-white rounded-xl px-4 mt-4 border border-blue-50">
                                                 <span className="text-gray-600 font-bold text-sm">Amount Paid</span>
                                                 <div className="flex items-baseline gap-1">
-                                                    <span className="font-black text-3xl sm:text-4xl text-blue-900">₹{chargedAmount || registrationData.amount}</span>
+                                                    <span className="font-black text-3xl sm:text-4xl text-blue-900">
+                                                        ₹{chargedAmount !== null ? chargedAmount : registrationData.amount}
+                                                    </span>
                                                     <span className="text-gray-500 text-xs sm:text-sm font-bold">.00</span>
                                                 </div>
                                             </div>

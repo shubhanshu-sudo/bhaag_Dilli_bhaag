@@ -214,9 +214,43 @@ export default function CheckoutPageContent() {
         }
     };
 
-    const handleProceedToPayment = () => {
+    const handleProceedToPayment = async () => {
         if (!paymentSummary) {
             showToast('error', 'Payment summary not loaded. Please refresh.');
+            return;
+        }
+
+        // If 100% discount, complete registration directly
+        if (paymentSummary.finalPayableAmount === 0) {
+            setIsLoading(true);
+            try {
+                const response = await fetch(API_ENDPOINTS.PAYMENT.COMPLETE_FREE_REGISTRATION, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        registrationId,
+                        couponCode: paymentSummary.couponCode
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast('success', 'Free registration completed!');
+                    // Redirect to payment page with a special flag to show success directly
+                    // Or we can just go to the payment page and let it find the 'paid' status
+                    router.push(`/register/payment?rid=${registrationId}&free=true`);
+                } else {
+                    showToast('error', data.message || 'Failed to complete free registration');
+                }
+            } catch (err) {
+                console.error('Free registration error:', err);
+                showToast('error', 'Network error. Please try again.');
+            } finally {
+                setIsLoading(false);
+            }
             return;
         }
 
@@ -483,7 +517,11 @@ export default function CheckoutPageContent() {
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
-                        Pay ₹{paymentSummary?.finalPayableAmount || '...'}
+                        {paymentSummary?.finalPayableAmount === 0 ? (
+                            'Complete Registration (Free)'
+                        ) : (
+                            <>Pay ₹{paymentSummary?.finalPayableAmount || '...'}</>
+                        )}
                     </button>
 
                     {/* Security Badge */}

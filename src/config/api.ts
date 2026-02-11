@@ -42,6 +42,7 @@ export const API_ENDPOINTS = {
     PAYMENT: {
         CREATE_ORDER: `${API_BASE_URL}/api/payments/create-order`,
         VERIFY_PAYMENT: `${API_BASE_URL}/api/payments/verify-payment`,
+        COMPLETE_FREE_REGISTRATION: `${API_BASE_URL}/api/payments/complete-free-registration`,
         CHECK_STATUS: `${API_BASE_URL}/api/payments/status`,
         DOWNLOAD_INVOICE: (registrationId: string) => `${API_BASE_URL}/api/payments/invoice/${registrationId}`,
         PRICE_BREAKDOWN: (raceCategory: string) => `${API_BASE_URL}/api/payments/price-breakdown/${raceCategory}`,
