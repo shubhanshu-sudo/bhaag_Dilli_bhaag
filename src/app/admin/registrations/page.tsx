@@ -17,6 +17,8 @@ interface Registration {
     race: string;
     tshirtSize: string;
     amount: number;
+    chargedAmount?: number;
+    couponCode?: string;
     paymentStatus: string;
     step: string;
     createdAt: string;
@@ -235,7 +237,7 @@ export default function AdminRegistrationsPage() {
             }
 
             // CSV Generation
-            const headers = ['Name', 'Email', 'Phone', 'Race Category', 'Amount', 'Payment Status', 'Progress', 'Date & Time'];
+            const headers = ['Name', 'Email', 'Phone', 'Race Category', 'Amount', 'Coupon Used', 'Net Paid', 'Payment Status', 'Progress', 'Date & Time'];
 
             const csvContent = [
                 headers.join(','),
@@ -245,7 +247,7 @@ export default function AdminRegistrationsPage() {
                         hour: '2-digit', minute: '2-digit'
                     });
 
-                    const escape = (text: string | number) => {
+                    const escape = (text: string | number | undefined | null) => {
                         const str = String(text || '');
                         if (str.includes(',') || str.includes('"') || str.includes('\n')) {
                             return `"${str.replace(/"/g, '""')}"`;
@@ -263,6 +265,8 @@ export default function AdminRegistrationsPage() {
                         escape(row.phone),
                         escape(row.race),
                         escape(row.amount),
+                        escape(row.couponCode || 'None'),
+                        escape(row.chargedAmount ?? 'Pending'),
                         escape(row.paymentStatus),
                         escape(progress),
                         escape(date)
@@ -559,6 +563,12 @@ export default function AdminRegistrationsPage() {
                                                 Amount
                                             </th>
                                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Coupon
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Net Paid
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Status
                                             </th>
                                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -596,7 +606,21 @@ export default function AdminRegistrationsPage() {
                                                     {getRaceBadge(registration.race)}
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <div className="text-sm font-semibold text-gray-900">Rs. {registration.amount}</div>
+                                                    <div className="text-sm text-gray-500 font-medium">Rs. {registration.amount}</div>
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap">
+                                                    {registration.couponCode ? (
+                                                        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-black bg-green-100 text-green-800 uppercase border border-green-200">
+                                                            {registration.couponCode}
+                                                        </span>
+                                                    ) : (
+                                                        <span className="text-gray-300 text-[10px] uppercase font-bold">-</span>
+                                                    )}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap">
+                                                    <div className={`text-sm font-black ${registration.paymentStatus === 'paid' ? 'text-blue-900' : 'text-gray-400'}`}>
+                                                        {registration.chargedAmount !== null ? `Rs. ${registration.chargedAmount}` : '--'}
+                                                    </div>
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
                                                     {getStatusBadge(registration.paymentStatus)}
