@@ -16,6 +16,8 @@ interface Coupon {
     discountValue: number;
     isActive: boolean;
     usageCount: number;
+    maxUsage: number | null;
+    expiresAt: string | null;
     createdAt: string;
 }
 
@@ -31,6 +33,8 @@ export default function AdminCouponsPage() {
     const [newCoupon, setNewCoupon] = useState({
         code: '',
         discountValue: 10,
+        maxUsage: '' as string | number,
+        expiresAt: '',
         isActive: true
     });
 
@@ -112,7 +116,7 @@ export default function AdminCouponsPage() {
             if (data.success) {
                 showToast('success', 'Coupon created successfully');
                 setIsAddingMode(false);
-                setNewCoupon({ code: '', discountValue: 10, isActive: true });
+                setNewCoupon({ code: '', discountValue: 10, maxUsage: '', expiresAt: '', isActive: true });
                 fetchCoupons(); // Refresh list
             } else {
                 showToast('error', data.message || 'Failed to create coupon');
@@ -279,6 +283,29 @@ export default function AdminCouponsPage() {
                                         <option value={100}>100% OFF</option>
                                     </select>
                                 </div>
+                                <div>
+                                    <label className="block text-sm font-bold text-gray-700 mb-1">Max Usage Limit (Optional)</label>
+                                    <input
+                                        type="number"
+                                        placeholder="No limit if empty"
+                                        value={newCoupon.maxUsage}
+                                        onChange={(e) => setNewCoupon({ ...newCoupon, maxUsage: e.target.value })}
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm"
+                                        min={1}
+                                    />
+                                    <p className="mt-1 text-[10px] text-gray-400">Total number of times this coupon can be used.</p>
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-bold text-gray-700 mb-1">Expiry Date (Optional)</label>
+                                    <input
+                                        type="date"
+                                        value={newCoupon.expiresAt}
+                                        onChange={(e) => setNewCoupon({ ...newCoupon, expiresAt: e.target.value })}
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm"
+                                        min={new Date().toISOString().split('T')[0]}
+                                    />
+                                    <p className="mt-1 text-[10px] text-gray-400">Coupon will automatically expire after this date.</p>
+                                </div>
                                 <div className="flex items-center gap-3 py-2">
                                     <input
                                         type="checkbox"
@@ -385,6 +412,9 @@ export default function AdminCouponsPage() {
                                             Status
                                         </th>
                                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Expiry
+                                        </th>
+                                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Usage Count
                                         </th>
                                         <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -417,7 +447,31 @@ export default function AdminCouponsPage() {
                                                 )}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-600">{coupon.usageCount} uses</div>
+                                                <div className="text-sm text-gray-600">
+                                                    {coupon.expiresAt ? (
+                                                        new Date(coupon.expiresAt).toLocaleDateString('en-IN', {
+                                                            day: '2-digit',
+                                                            month: 'short',
+                                                            year: 'numeric'
+                                                        })
+                                                    ) : (
+                                                        <span className="text-gray-300 italic text-xs">No Expiry</span>
+                                                    )}
+                                                </div>
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                <div className="text-sm text-gray-600">
+                                                    {coupon.usageCount}
+                                                    {coupon.maxUsage ? (
+                                                        <span className="text-gray-400 ml-1">
+                                                            / {coupon.maxUsage}
+                                                        </span>
+                                                    ) : (
+                                                        <span className="text-gray-300 ml-1 text-[10px] italic">
+                                                            (no limit)
+                                                        </span>
+                                                    )}
+                                                </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right">
                                                 <div className="flex items-center justify-end gap-2">
