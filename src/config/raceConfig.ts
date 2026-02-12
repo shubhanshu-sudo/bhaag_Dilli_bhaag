@@ -22,7 +22,8 @@ export const RACE_CONFIG = {
             'Finisher Medal',
             'Goodie Bag',
             'Hydration Support',
-            'Medical Support'
+            'Medical Support',
+            'Timing Chip (RFID)'
         ],
         featured: true
     },
