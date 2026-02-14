@@ -279,7 +279,14 @@ export default function AdminCouponsPage() {
                                     >
                                         <option value={10}>10% OFF</option>
                                         <option value={20}>20% OFF</option>
+                                        <option value={25}>25% OFF</option>
+                                        <option value={30}>30% OFF</option>
+                                        <option value={40}>40% OFF</option>
                                         <option value={50}>50% OFF</option>
+                                        <option value={60}>60% OFF</option>
+                                        <option value={70}>70% OFF</option>
+                                        <option value={80}>80% OFF</option>
+                                        <option value={90}>90% OFF</option>
                                         <option value={100}>100% OFF</option>
                                     </select>
                                 </div>
