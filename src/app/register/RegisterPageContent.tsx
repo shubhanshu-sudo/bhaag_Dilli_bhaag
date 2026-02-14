@@ -139,7 +139,7 @@ export default function RegisterPageContent() {
                                             <div className="hidden md:block">
                                                 <h4 className="font-bold text-gray-900 mb-4 sm:mb-5 text-sm uppercase tracking-wide opacity-80">Included in Ticket:</h4>
                                                 <ul className="space-y-4">
-                                                    {category.includes.slice(0, 5).map((item, idx) => (
+                                                    {category.includes.map((item, idx) => (
                                                         <li key={idx} className="flex items-start text-sm transition-all duration-200 group-hover:translate-x-1">
                                                             <div className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 flex-shrink-0 transition-all duration-300 ${category.featured ? 'bg-blue-100 text-blue-700 group-hover:bg-blue-200' : 'bg-gray-100 text-gray-500 group-hover:bg-blue-100 group-hover:text-blue-600'}`}>
                                                                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
