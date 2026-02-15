@@ -29,7 +29,9 @@ export default function AdminCouponsPage() {
     const [error, setError] = useState('');
     const [isSubmitting, setIsSubmitting] = useState<string | null>(null);
     const [isAddingMode, setIsAddingMode] = useState(false);
+    const [isEditingMode, setIsEditingMode] = useState(false);
     const [couponToDelete, setCouponToDelete] = useState<Coupon | null>(null);
+    const [editingCoupon, setEditingCoupon] = useState<Coupon | null>(null);
     const [newCoupon, setNewCoupon] = useState({
         code: '',
         discountValue: 10,
@@ -127,6 +129,70 @@ export default function AdminCouponsPage() {
         } finally {
             setIsSubmitting(null);
         }
+    };
+
+    const handleUpdateCoupon = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!editingCoupon) return;
+
+        const code = newCoupon.code.trim().toUpperCase();
+
+        // Validation
+        if (code.length < 5 || code.length > 12) {
+            showToast('error', 'Coupon code must be between 5 and 12 characters');
+            return;
+        }
+
+        const codeRegex = /^[A-Z0-9]+$/;
+        if (!codeRegex.test(code)) {
+            showToast('error', 'Coupon code can only contain uppercase letters and numbers');
+            return;
+        }
+
+        setIsSubmitting('updating');
+
+        try {
+            const response = await fetch(API_ENDPOINTS.ADMIN.UPDATE_COUPON(editingCoupon._id), {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...authUtils.getAuthHeader()
+                },
+                body: JSON.stringify({
+                    ...newCoupon,
+                    code: code
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                showToast('success', 'Coupon updated successfully');
+                setIsEditingMode(false);
+                setEditingCoupon(null);
+                setNewCoupon({ code: '', discountValue: 10, maxUsage: '', expiresAt: '', isActive: true });
+                fetchCoupons(); // Refresh list
+            } else {
+                showToast('error', data.message || 'Failed to update coupon');
+            }
+        } catch (err) {
+            console.error('Update error:', err);
+            showToast('error', 'Network error. Failed to update coupon.');
+        } finally {
+            setIsSubmitting(null);
+        }
+    };
+
+    const openEditModal = (coupon: Coupon) => {
+        setEditingCoupon(coupon);
+        setNewCoupon({
+            code: coupon.code,
+            discountValue: coupon.discountValue,
+            maxUsage: coupon.maxUsage || '',
+            expiresAt: coupon.expiresAt ? new Date(coupon.expiresAt).toISOString().split('T')[0] : '',
+            isActive: coupon.isActive
+        });
+        setIsEditingMode(true);
     };
 
     const handleDeleteCoupon = async (id: string) => {
@@ -243,14 +309,16 @@ export default function AdminCouponsPage() {
                     </button>
                 </div>
 
-                {/* Add Coupon Modal */}
-                {isAddingMode && (
+                {/* Add/Edit Coupon Modal */}
+                {(isAddingMode || isEditingMode) && (
                     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                         <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in-95 duration-300">
                             <div className="bg-blue-900 px-6 py-4">
-                                <h3 className="text-xl font-bold text-white uppercase tracking-wider">Create New Coupon</h3>
+                                <h3 className="text-xl font-bold text-white uppercase tracking-wider">
+                                    {isEditingMode ? 'Edit Coupon' : 'Create New Coupon'}
+                                </h3>
                             </div>
-                            <form onSubmit={handleCreateCoupon} className="p-6 space-y-4">
+                            <form onSubmit={isEditingMode ? handleUpdateCoupon : handleCreateCoupon} className="p-6 space-y-4">
                                 <div>
                                     <label className="block text-sm font-bold text-gray-700 mb-1">Coupon Code</label>
                                     <input
@@ -326,17 +394,22 @@ export default function AdminCouponsPage() {
                                 <div className="flex gap-3 pt-4 border-t border-gray-100">
                                     <button
                                         type="button"
-                                        onClick={() => setIsAddingMode(false)}
+                                        onClick={() => {
+                                            setIsAddingMode(false);
+                                            setIsEditingMode(false);
+                                            setEditingCoupon(null);
+                                            setNewCoupon({ code: '', discountValue: 10, maxUsage: '', expiresAt: '', isActive: true });
+                                        }}
                                         className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 font-bold rounded-lg hover:bg-gray-50 transition-colors"
                                     >
                                         Cancel
                                     </button>
                                     <button
                                         type="submit"
-                                        disabled={isSubmitting === 'creating'}
+                                        disabled={isSubmitting === 'creating' || isSubmitting === 'updating'}
                                         className="flex-1 px-4 py-2 bg-blue-900 text-white font-bold rounded-lg hover:bg-blue-800 disabled:opacity-50 transition-all shadow-md"
                                     >
-                                        {isSubmitting === 'creating' ? 'Creating...' : 'Create Coupon'}
+                                        {isSubmitting === 'creating' ? 'Creating...' : isSubmitting === 'updating' ? 'Updating...' : isEditingMode ? 'Update Coupon' : 'Create Coupon'}
                                     </button>
                                 </div>
                             </form>
@@ -498,6 +571,15 @@ export default function AdminCouponsPage() {
                                                             </svg>
                                                         ) : null}
                                                         {coupon.isActive ? 'Deactivate' : 'Activate'}
+                                                    </button>
+                                                    <button
+                                                        onClick={() => openEditModal(coupon)}
+                                                        className="p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-all"
+                                                        title="Edit Coupon"
+                                                    >
+                                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                        </svg>
                                                     </button>
                                                     <button
                                                         onClick={() => setCouponToDelete(coupon)}
