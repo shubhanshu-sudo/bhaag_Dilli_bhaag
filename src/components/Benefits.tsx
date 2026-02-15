@@ -26,6 +26,11 @@ export default function Benefits() {
             icon: "/Icon Tshirt size 2.png",
             title: "Timing Chip (RFID)",
             description: "Accurate RFID timing (10 KM only)"
+        },
+        {
+            icon: "/Icon Refreshment.svg",
+            title: "Extra Refreshment",
+            description: "Post-run breakfast & energy"
         }
     ];
 
@@ -50,7 +55,7 @@ export default function Benefits() {
                     <div className="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-8">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-8">
                     {benefits.map((benefit, index) => (
                         <div
                             key={index}
