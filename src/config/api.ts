@@ -55,6 +55,7 @@ export const API_ENDPOINTS = {
         COUPONS: `${API_BASE_URL}/api/admin/coupons`,
         UPDATE_COUPON: (id: string) => `${API_BASE_URL}/api/admin/coupons/${id}`,
         TOGGLE_COUPON_STATUS: (id: string) => `${API_BASE_URL}/api/admin/coupons/${id}/status`,
+        RESEND_EMAIL: (id: string) => `${API_BASE_URL}/api/admin/registrations/${id}/resend-email`,
     },
 } as const;
 

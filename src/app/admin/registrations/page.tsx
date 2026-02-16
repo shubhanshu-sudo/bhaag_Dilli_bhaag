@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { authUtils } from '@/utils/auth';
 import { API_ENDPOINTS } from '@/config/api';
+import { useToast } from '@/contexts/ToastContext';
+import ConfirmModal from '@/components/ConfirmModal';
 import Link from 'next/link';
 
 // Force dynamic rendering
@@ -42,7 +44,22 @@ export default function AdminRegistrationsPage() {
     const [stats, setStats] = useState<Stats | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isExporting, setIsExporting] = useState(false);
+    const [resendingEmails, setResendingEmails] = useState<Record<string, boolean>>({});
+    const { showToast } = useToast();
     const [error, setError] = useState('');
+
+    // Modal state
+    const [confirmModal, setConfirmModal] = useState<{
+        isOpen: boolean;
+        title: string;
+        message: string;
+        onConfirm: () => void;
+    }>({
+        isOpen: false,
+        title: '',
+        message: '',
+        onConfirm: () => { }
+    });
 
     // Filters and pagination state
     const [searchQuery, setSearchQuery] = useState('');
@@ -232,7 +249,7 @@ export default function AdminRegistrationsPage() {
 
             const data = result.data;
             if (data.length === 0) {
-                alert('No data available to export');
+                showToast('warning', 'No data available to export');
                 return;
             }
 
@@ -309,9 +326,45 @@ export default function AdminRegistrationsPage() {
 
         } catch (err) {
             console.error('Export error:', err);
-            alert('Failed to export CSV. Please try again.');
+            showToast('error', 'Failed to export CSV. Please try again.');
         } finally {
             setIsExporting(false);
+        }
+    };
+
+    const handleResendEmail = async (id: string, email: string) => {
+        setConfirmModal({
+            isOpen: true,
+            title: 'Resend Email',
+            message: `Are you sure you want to resend the confirmation email to ${email}?`,
+            onConfirm: () => executeResendEmail(id, email)
+        });
+    };
+
+    const executeResendEmail = async (id: string, email: string) => {
+        setResendingEmails(prev => ({ ...prev, [id]: true }));
+
+        try {
+            const response = await fetch(API_ENDPOINTS.ADMIN.RESEND_EMAIL(id), {
+                method: 'POST',
+                headers: {
+                    ...authUtils.getAuthHeader()
+                }
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                showToast('success', 'Email resent successfully!');
+                fetchRegistrations(); // Refresh to update any flags if needed
+            } else {
+                showToast('error', data.message || 'Failed to resend email');
+            }
+        } catch (err) {
+            console.error('Resend error:', err);
+            showToast('error', 'Network error while resending email');
+        } finally {
+            setResendingEmails(prev => ({ ...prev, [id]: false }));
         }
     };
 
@@ -577,8 +630,11 @@ export default function AdminRegistrationsPage() {
                                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                 Date
                                             </th>
+                                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Email Action
+                                            </th>
                                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                Actions
+                                                Details
                                             </th>
                                         </tr>
                                     </thead>
@@ -631,13 +687,42 @@ export default function AdminRegistrationsPage() {
                                                 <td className="px-6 py-4 whitespace-nowrap">
                                                     <div className="text-sm text-gray-600">{formatDate(registration.createdAt)}</div>
                                                 </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-center">
+                                                    {registration.paymentStatus === 'paid' ? (
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                handleResendEmail(registration._id, registration.email);
+                                                            }}
+                                                            disabled={resendingEmails[registration._id]}
+                                                            className={`inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-bold rounded shadow-sm text-white ${resendingEmails[registration._id] ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all`}
+                                                            title="Resend Confirmation Email"
+                                                        >
+                                                            {resendingEmails[registration._id] ? (
+                                                                <svg className="animate-spin h-3.5 w-3.5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                                </svg>
+                                                            ) : (
+                                                                <>
+                                                                    <svg className="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                                                    </svg>
+                                                                    SEND MAIL
+                                                                </>
+                                                            )}
+                                                        </button>
+                                                    ) : (
+                                                        <span className="text-gray-300 text-[10px] uppercase font-bold">-</span>
+                                                    )}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
                                                     <button
                                                         onClick={(e) => {
                                                             e.stopPropagation();
                                                             router.push(`/admin/registrations/${registration._id}`);
                                                         }}
-                                                        className="text-blue-600 hover:text-blue-800"
+                                                        className="text-blue-600 hover:text-blue-800 p-1 rounded-full hover:bg-blue-50 transition-colors"
                                                         title="View Details"
                                                     >
                                                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -680,6 +765,16 @@ export default function AdminRegistrationsPage() {
                     )}
                 </div>
             </main >
+
+            <ConfirmModal
+                isOpen={confirmModal.isOpen}
+                onClose={() => setConfirmModal(prev => ({ ...prev, isOpen: false }))}
+                onConfirm={confirmModal.onConfirm}
+                title={confirmModal.title}
+                message={confirmModal.message}
+                confirmText="Send Now"
+                cancelText="Not Now"
+            />
         </div >
     );
 }
