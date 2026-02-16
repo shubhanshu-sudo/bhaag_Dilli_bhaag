@@ -10,7 +10,7 @@ const routes = [
         label: '2 KM',
         distance: '2.0 KM',
         description: 'Perfect for families and fun runners. A quick loop around the scenic Sector-10 park area.',
-        image: '/2km.png',
+        image: '/2km_01.png',
         color: '#1e3a8a'
     },
     {
@@ -18,7 +18,7 @@ const routes = [
         label: '5 KM',
         distance: '5.0 KM',
         description: 'The fitness favorite. Two loops of the park with flat paths to push your pace.',
-        image: '/5km.png',
+        image: '/5km_01.png',
         color: '#1e3a8a'
     },
     {
@@ -26,7 +26,7 @@ const routes = [
         label: '10 KM',
         distance: '10.0 KM',
         description: 'For serious runners. A rewarding multi-lap course to test your endurance.',
-        image: '/10km.png',
+        image: '/10km_01.png',
         color: '#1e3a8a'
     }
 ];
