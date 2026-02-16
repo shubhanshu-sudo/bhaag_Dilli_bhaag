@@ -9,6 +9,7 @@ import Benefits from '@/components/Benefits';
 import RaceCategories from '@/components/RaceCategories';
 import Route from '@/components/Route';
 import Partners from '@/components/Partners';
+import PromoBanner from '@/components/PromoBanner';
 
 export const metadata: Metadata = {
   title: 'Bhaag Dilli Bhaag | Running Event for Education in Delhi',
@@ -88,6 +89,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <PromoBanner />
         <Prizes />
         <VideoTeaser />
         <About />

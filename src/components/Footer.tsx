@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Footer() {
     return (
-        <footer id="contact" className="relative pt-16 sm:pt-28 lg:pt-32 pb-8 sm:pb-10 overflow-hidden">
+        <footer id="footer" className="relative pt-16 sm:pt-28 lg:pt-32 pb-8 sm:pb-10 overflow-hidden">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <div

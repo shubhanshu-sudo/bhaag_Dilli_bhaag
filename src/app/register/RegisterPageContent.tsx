@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import EmailModal from '@/components/EmailModal';
+import PromoBanner from '@/components/PromoBanner';
 import { RACE_CONFIG } from '@/config/raceConfig';
 
 export default function RegisterPageContent() {
@@ -60,8 +61,10 @@ export default function RegisterPageContent() {
                     </div>
                 </section>
 
+                <PromoBanner />
+
                 {/* Category Selection */}
-                <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+                <section id="pricing" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-12 sm:mb-16">
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
