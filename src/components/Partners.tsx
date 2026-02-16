@@ -14,6 +14,7 @@ export default function Partners() {
         { id: 20, path: "/whatsapp_image_2025_12_05_at_13_42_19_22066bac_1/whatsapp_image_2025_12_05_at_13_42_19_22066bac_1_1_5x.webp", type: "Principal Sponsor" },
         { id: 21, path: "/Unified-Sports-green-logo-png-1-Custom.png.webp", type: "Official Partner" },
         { id: 22, path: "/Frame 3.png", type: "Official Partner" },
+        { id: 23, path: "/decathlon-logo-png_seeklogo-524475.png", type: "Sports Partner" },
     ];
 
     return (
