@@ -76,7 +76,7 @@ export default function Hero() {
                             <div className="flex flex-col gap-3 sm:gap-4 mb-8 sm:mb-10 text-gray-800 font-semibold text-sm sm:text-lg border-l-4 border-blue-900 pl-4 sm:pl-6">
                                 <div className="flex items-center gap-3">
                                     <span className="uppercase tracking-wider text-[10px] sm:text-sm text-gray-400 w-12 sm:w-16 flex-shrink-0">Date</span>
-                                    <span className="text-gray-900">1st March 2026</span>
+                                    <span className="text-gray-900">1st March 2026, 6:00 AM</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <span className="uppercase tracking-wider text-[10px] sm:text-sm text-gray-400 w-12 sm:w-16 flex-shrink-0">Venue</span>
