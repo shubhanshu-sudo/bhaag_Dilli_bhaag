@@ -90,6 +90,10 @@ export default function Navbar() {
             Route
           </Link>
 
+          <Link href="/#race-expo" className="text-sm font-bold text-blue-900 hover:text-blue-700 transition-colors">
+            Race Expo
+          </Link>
+
           <span className="h-5 w-px bg-blue-100" />
 
           <Link
@@ -165,6 +169,13 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Route
+            </Link>
+            <Link
+              href="/#race-expo"
+              className="px-6 py-4 text-sm font-bold text-blue-900 hover:bg-blue-50 transition-colors border-b border-blue-50"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Race Expo
             </Link>
             <Link
               href="/#contact"

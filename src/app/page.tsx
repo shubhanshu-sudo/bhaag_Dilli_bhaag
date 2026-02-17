@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import Prizes from '@/components/Prizes';
+import RaceExpo from '@/components/RaceExpo';
 import VideoTeaser from '@/components/VideoTeaser';
 import About from '@/components/About';
 import Benefits from '@/components/Benefits';
@@ -91,6 +92,7 @@ export default function Home() {
         <Hero />
         <PromoBanner />
         <Prizes />
+        <RaceExpo />
         <VideoTeaser />
         <About />
         <Benefits />
