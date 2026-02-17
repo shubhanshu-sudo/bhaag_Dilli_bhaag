@@ -7,11 +7,11 @@ import Footer from '@/components/Footer';
 const faqs = [
     {
         question: "What is Bhaag Dilli Bhaag?",
-        answer: "Bhaag Dilli Bhaag is a charity marathon organised by Delhi Amigos around Table 313. It brings together runners, families, and communities to support the larger cause of Freedom Through Education and create meaningful social impact through participation."
+        answer: "Bhaag Dilli Bhaag is a charity marathon organised by Delhi Amigos Round Table 311. It brings together runners, families, and communities to support the larger cause of Freedom Through Education and create meaningful social impact through participation."
     },
     {
         question: "When and where will the event take place?",
-        answer: "The event will be held in Delhi on the announced race date. The exact venue, reporting time, and route details will be shared with registered participants closer to race day."
+        answer: "The Bhaag Dilli Bhaag running event will be held at MetroWalk on 1st March.\nParticipants are requested to report by 6:00 AM to ensure a smooth and timely start of the event."
     },
     {
         question: "What are the race categories?",
@@ -19,11 +19,11 @@ const faqs = [
     },
     {
         question: "How can I register for the event?",
-        answer: "Registrations can be completed online through the official registration partner. The registration link is available on this website. Payments can be made using cards, net banking, or supported digital wallets."
+        answer: "Registrations can be completed online through this website or via our official registration partner BookMyShow.\nThe registration link is available above for your convenience.\n\nPayments can be made securely using debit/credit cards, net banking, or supported digital wallets."
     },
     {
         question: "What does my registration include?",
-        answer: "Your registration includes:\n• Official race bib with timing chip (for timed categories)\n• Race day dry-fit T-shirt\n• Finisher medal\n• Hydration and medical support on route\n• Post-run breakfast\n• E-certificate\n• Professional race day photos"
+        answer: "Your registration includes the following:\n• Finisher medal\n• Goodie bag\n• Hydration support during the run\n• Medical support on race day\n• Timing chip (RFID)\n• Race jersey\n• Post-run refreshments"
     },
     {
         question: "Is there a minimum age to participate?",
@@ -31,7 +31,7 @@ const faqs = [
     },
     {
         question: "Can I register offline?",
-        answer: "No. Registrations are accepted online only."
+        answer: "Yes, offline registrations are available.\nFor offline registration assistance, please contact 9599218680."
     },
     {
         question: "Can I cancel my registration?",
