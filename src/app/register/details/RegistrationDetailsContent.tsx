@@ -31,6 +31,7 @@ export function RegistrationDetailsContent() {
         gender: '',
         dob: '',
         tshirtSize: '',
+        bloodGroup: '',
         emergencyName: '',
         emergencyPhone: ''
     });
@@ -63,6 +64,7 @@ export function RegistrationDetailsContent() {
                     gender: data.gender || prev.gender,
                     dob: data.dob ? data.dob.split('T')[0] : prev.dob,
                     tshirtSize: data.tshirtSize || prev.tshirtSize,
+                    bloodGroup: data.bloodGroup || prev.bloodGroup,
                     emergencyName: data.emergencyName || prev.emergencyName,
                     emergencyPhone: data.emergencyPhone || prev.emergencyPhone,
                 }));
@@ -170,6 +172,13 @@ export function RegistrationDetailsContent() {
             newErrors.tshirtSize = 'Please select a valid t-shirt size';
         }
 
+        // Blood Group Validation
+        if (!formData.bloodGroup) {
+            newErrors.bloodGroup = 'Please select your blood group';
+        } else if (!['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'].includes(formData.bloodGroup)) {
+            newErrors.bloodGroup = 'Please select a valid blood group';
+        }
+
         // Emergency Contact Name Validation
         const emergencyNameValue = formData.emergencyName.trim();
         if (!emergencyNameValue) {
@@ -223,6 +232,7 @@ export function RegistrationDetailsContent() {
                 // Additional data for future use
                 gender: formData.gender,
                 dob: formData.dob,
+                bloodGroup: formData.bloodGroup,
                 emergencyName: formData.emergencyName,
                 emergencyPhone: formData.emergencyPhone,
                 raceTitle: raceDetails.title,
@@ -488,30 +498,60 @@ export function RegistrationDetailsContent() {
                                 </div>
                             </div>
 
-                            {/* T-Shirt Size */}
-                            <div>
-                                <label htmlFor="tshirtSize" className="block text-sm font-semibold text-gray-700 mb-2">
-                                    T-Shirt Size <span className="text-red-500">*</span>
-                                </label>
-                                <select
-                                    id="tshirtSize"
-                                    name="tshirtSize"
-                                    value={formData.tshirtSize}
-                                    onChange={handleChange}
-                                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all ${errors.tshirtSize ? 'border-red-500' : 'border-gray-300'
-                                        }`}
-                                >
-                                    <option value="">Select Size</option>
-                                    <option value="XS">XS - Extra Small</option>
-                                    <option value="S">S - Small</option>
-                                    <option value="M">M - Medium</option>
-                                    <option value="L">L - Large</option>
-                                    <option value="XL">XL - Extra Large</option>
-                                    <option value="XXL">XXL - Double XL</option>
-                                </select>
-                                {errors.tshirtSize && (
-                                    <p className="mt-1 text-sm text-red-600">{errors.tshirtSize}</p>
-                                )}
+                            {/* T-Shirt Size and Blood Group */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label htmlFor="tshirtSize" className="block text-sm font-semibold text-gray-700 mb-2">
+                                        T-Shirt Size <span className="text-red-500">*</span>
+                                    </label>
+                                    <select
+                                        id="tshirtSize"
+                                        name="tshirtSize"
+                                        value={formData.tshirtSize}
+                                        onChange={handleChange}
+                                        className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all ${errors.tshirtSize ? 'border-red-500' : 'border-gray-300'
+                                            }`}
+                                    >
+                                        <option value="">Select Size</option>
+                                        <option value="XS">XS - Extra Small</option>
+                                        <option value="S">S - Small</option>
+                                        <option value="M">M - Medium</option>
+                                        <option value="L">L - Large</option>
+                                        <option value="XL">XL - Extra Large</option>
+                                        <option value="XXL">XXL - Double XL</option>
+                                    </select>
+                                    {errors.tshirtSize && (
+                                        <p className="mt-1 text-sm text-red-600">{errors.tshirtSize}</p>
+                                    )}
+                                </div>
+
+                                {/* Blood Group */}
+                                <div>
+                                    <label htmlFor="bloodGroup" className="block text-sm font-semibold text-gray-700 mb-2">
+                                        Blood Group <span className="text-red-500">*</span>
+                                    </label>
+                                    <select
+                                        id="bloodGroup"
+                                        name="bloodGroup"
+                                        value={formData.bloodGroup}
+                                        onChange={handleChange}
+                                        className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all ${errors.bloodGroup ? 'border-red-500' : 'border-gray-300'
+                                            }`}
+                                    >
+                                        <option value="">Select Blood Group</option>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                    </select>
+                                    {errors.bloodGroup && (
+                                        <p className="mt-1 text-sm text-red-600">{errors.bloodGroup}</p>
+                                    )}
+                                </div>
                             </div>
 
                             {/* Emergency Contact Section */}
