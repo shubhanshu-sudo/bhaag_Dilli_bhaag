@@ -6,43 +6,43 @@ import { useEffect, useState } from 'react';
 const EVENT_DATE = new Date('2026-03-01T06:00:00+05:30');
 
 interface TimeLeft {
-    days: number;
-    hours: number;
-    minutes: number;
-    seconds: number;
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 }
 
 function calculateTimeLeft(): TimeLeft {
-    const now = new Date();
-    const difference = EVENT_DATE.getTime() - now.getTime();
+  const now = new Date();
+  const difference = EVENT_DATE.getTime() - now.getTime();
 
-    if (difference <= 0) {
-        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    }
+  if (difference <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
 
-    return {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-    };
+  return {
+    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((difference / 1000 / 60) % 60),
+    seconds: Math.floor((difference / 1000) % 60),
+  };
 }
 
 export default function MaintenancePage() {
-    const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
-    const [mounted, setMounted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true);
-        const timer = setInterval(() => {
-            setTimeLeft(calculateTimeLeft());
-        }, 1000);
-        return () => clearInterval(timer);
-    }, []);
+  useEffect(() => {
+    setMounted(true);
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-    return (
-        <>
-            <style>{`
+  return (
+    <>
+      <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
         *, *::before, *::after {
@@ -353,98 +353,128 @@ export default function MaintenancePage() {
             font-size: 1.5rem;
           }
         }
+
+        .image-container {
+          margin: 1.5rem 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+        }
+
+        .maintenance-image {
+          max-width: 100%;
+          height: auto;
+          border-radius: 1rem;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          border: 1px solid rgba(139, 92, 246, 0.1);
+          transition: transform 0.3s ease;
+        }
+
+        .maintenance-image:hover {
+          transform: scale(1.02);
+        }
       `}</style>
 
-            <div className="maintenance-root">
-                <div className="card">
-                    {/* Animated icon */}
-                    <div className="icon-wrap">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                        </svg>
-                    </div>
+      <div className="maintenance-root">
+        <div className="card">
+          {/* Animated icon */}
+          <div className="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+            </svg>
+          </div>
 
-                    {/* Status badge */}
-                    <div className="badge">
-                        <span className="badge-dot" />
-                        Maintenance in Progress
-                    </div>
+          {/* Status badge */}
+          <div className="badge">
+            <span className="badge-dot" />
+            Maintenance in Progress
+          </div>
 
-                    {/* Heading */}
-                    <h1>We&apos;ll Be Back Soon!</h1>
+          {/* Heading */}
+          <h1>We&apos;ll Be Back Soon!</h1>
 
-                    {/* Subtext */}
-                    <p className="subtext">
-                        Bhaag Dilli Bhaag website is currently under maintenance.
-                        <br />
-                        Please check back shortly.
-                    </p>
+          {/* Subtext */}
+          <p className="subtext">
+            Bhaag Dilli Bhaag website is currently under maintenance.
+            <br />
+            Please check back shortly.
+          </p>
 
-                    <div className="divider" />
+          {/* Maintenance Image */}
+          <div className="image-container">
+            <img
+              src="/WhatsApp%20Image%202026-02-19%20at%203.35.18%20PM.jpeg"
+              alt="Site Under Maintenance"
+              className="maintenance-image"
+            />
+          </div>
 
-                    {/* Event Info */}
-                    <div className="event-info">
-                        <div className="event-chip">
-                            <span className="event-chip-label">Event</span>
-                            <span className="event-chip-value gradient-text">Bhaag Dilli Bhaag 2026</span>
-                        </div>
-                        <div className="event-separator" />
-                        <div className="event-chip">
-                            <span className="event-chip-label">Date</span>
-                            <span className="event-chip-value">1st March 2026</span>
-                        </div>
-                        <div className="event-separator" />
-                        <div className="event-chip">
-                            <span className="event-chip-label">Venue</span>
-                            <span className="event-chip-value">Sector-10, Rohini</span>
-                        </div>
-                    </div>
+          <div className="divider" />
 
-                    <div className="divider" />
-
-                    {/* Countdown Section */}
-                    <div className="countdown-section">
-                        <p className="countdown-label">⏳ Event Countdown</p>
-                        <div className="countdown-grid">
-                            <div className="countdown-unit">
-                                <span className="countdown-number">
-                                    {mounted ? String(timeLeft.days).padStart(2, '0') : '--'}
-                                </span>
-                                <span className="countdown-unit-label">Days</span>
-                            </div>
-                            <span className="countdown-colon">:</span>
-                            <div className="countdown-unit">
-                                <span className="countdown-number">
-                                    {mounted ? String(timeLeft.hours).padStart(2, '0') : '--'}
-                                </span>
-                                <span className="countdown-unit-label">Hours</span>
-                            </div>
-                            <span className="countdown-colon">:</span>
-                            <div className="countdown-unit">
-                                <span className="countdown-number">
-                                    {mounted ? String(timeLeft.minutes).padStart(2, '0') : '--'}
-                                </span>
-                                <span className="countdown-unit-label">Minutes</span>
-                            </div>
-                            <span className="countdown-colon">:</span>
-                            <div className="countdown-unit">
-                                <span className="countdown-number">
-                                    {mounted ? String(timeLeft.seconds).padStart(2, '0') : '--'}
-                                </span>
-                                <span className="countdown-unit-label">Seconds</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Status */}
-                    <div className="status-bar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-                        </svg>
-                        We&apos;re working hard to get everything ready
-                    </div>
-                </div>
+          {/* Event Info */}
+          <div className="event-info">
+            <div className="event-chip">
+              <span className="event-chip-label">Event</span>
+              <span className="event-chip-value gradient-text">Bhaag Dilli Bhaag 2026</span>
             </div>
-        </>
-    );
+            <div className="event-separator" />
+            <div className="event-chip">
+              <span className="event-chip-label">Date</span>
+              <span className="event-chip-value">1st March 2026</span>
+            </div>
+            <div className="event-separator" />
+            <div className="event-chip">
+              <span className="event-chip-label">Venue</span>
+              <span className="event-chip-value">Sector-10, Rohini</span>
+            </div>
+          </div>
+
+          <div className="divider" />
+
+          {/* Countdown Section */}
+          <div className="countdown-section">
+            <p className="countdown-label">⏳ Event Countdown</p>
+            <div className="countdown-grid">
+              <div className="countdown-unit">
+                <span className="countdown-number">
+                  {mounted ? String(timeLeft.days).padStart(2, '0') : '--'}
+                </span>
+                <span className="countdown-unit-label">Days</span>
+              </div>
+              <span className="countdown-colon">:</span>
+              <div className="countdown-unit">
+                <span className="countdown-number">
+                  {mounted ? String(timeLeft.hours).padStart(2, '0') : '--'}
+                </span>
+                <span className="countdown-unit-label">Hours</span>
+              </div>
+              <span className="countdown-colon">:</span>
+              <div className="countdown-unit">
+                <span className="countdown-number">
+                  {mounted ? String(timeLeft.minutes).padStart(2, '0') : '--'}
+                </span>
+                <span className="countdown-unit-label">Minutes</span>
+              </div>
+              <span className="countdown-colon">:</span>
+              <div className="countdown-unit">
+                <span className="countdown-number">
+                  {mounted ? String(timeLeft.seconds).padStart(2, '0') : '--'}
+                </span>
+                <span className="countdown-unit-label">Seconds</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Status */}
+          <div className="status-bar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+            </svg>
+            We&apos;re working hard to get everything ready
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }

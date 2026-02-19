@@ -2,7 +2,11 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-    const isMaintenanceMode = process.env.MAINTENANCE_MODE === 'true';
+    const isMaintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true';
+    console.log('--- Middleware Check ---');
+    console.log('Path:', request.nextUrl.pathname);
+    console.log('Mode:', process.env.NEXT_PUBLIC_MAINTENANCE_MODE);
+    console.log('isMaintenanceMode:', isMaintenanceMode);
 
     // If maintenance mode is OFF, let all requests pass through normally
     if (!isMaintenanceMode) {
@@ -48,13 +52,5 @@ export function middleware(request: NextRequest) {
 
 // Match all routes except Next.js internals and static files
 export const config = {
-    matcher: [
-        /*
-         * Match all request paths EXCEPT:
-         * - _next/static (static files)
-         * - _next/image (image optimization)
-         * - favicon.ico
-         */
-        '/((?!_next/static|_next/image|favicon.ico).*)',
-    ],
+    matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };
