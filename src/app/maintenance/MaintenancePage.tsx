@@ -1,45 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
-// Target date: 1st March 2026
-const EVENT_DATE = new Date('2026-03-01T06:00:00+05:30');
-
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
-
-function calculateTimeLeft(): TimeLeft {
-  const now = new Date();
-  const difference = EVENT_DATE.getTime() - now.getTime();
-
-  if (difference <= 0) {
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  }
-
-  return {
-    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((difference / 1000 / 60) % 60),
-    seconds: Math.floor((difference / 1000) % 60),
-  };
-}
-
 export default function MaintenancePage() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <>
       <style>{`
@@ -193,55 +154,6 @@ export default function MaintenancePage() {
           font-weight: 400;
         }
 
-        .divider {
-          height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
-          margin: 2rem 0;
-        }
-
-        .event-info {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 2rem;
-          flex-wrap: wrap;
-          margin-bottom: 2rem;
-        }
-
-        .event-chip {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.25rem;
-        }
-
-        .event-chip-label {
-          font-size: 0.7rem;
-          font-weight: 600;
-          color: #94a3b8;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-        }
-
-        .event-chip-value {
-          font-size: 1rem;
-          font-weight: 700;
-          color: #1a1a2e;
-        }
-
-        .event-chip-value.gradient-text {
-          background: linear-gradient(135deg, #7c3aed, #ec4899);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-
-        .event-separator {
-          width: 1px;
-          height: 36px;
-          background: rgba(139, 92, 246, 0.2);
-        }
-
         .status-bar {
           display: flex;
           align-items: center;
@@ -250,6 +162,7 @@ export default function MaintenancePage() {
           font-size: 0.85rem;
           color: #94a3b8;
           font-weight: 500;
+          margin-top: 2rem;
         }
 
         .status-bar svg {
@@ -269,18 +182,7 @@ export default function MaintenancePage() {
             padding: 2.5rem 1.5rem;
             border-radius: 1.5rem;
           }
-          .event-info {
-            gap: 1.25rem;
-          }
-          .event-separator {
-            display: none;
-          }
-          .event-separator {
-            display: none;
-          }
         }
-
-
 
         .image-container {
           margin: 1.5rem 0;
@@ -337,30 +239,6 @@ export default function MaintenancePage() {
               className="maintenance-image"
             />
           </div>
-
-          <div className="divider" />
-
-          {/* Event Info */}
-          <div className="event-info">
-            <div className="event-chip">
-              <span className="event-chip-label">Event</span>
-              <span className="event-chip-value gradient-text">Bhaag Dilli Bhaag 2026</span>
-            </div>
-            <div className="event-separator" />
-            <div className="event-chip">
-              <span className="event-chip-label">Date</span>
-              <span className="event-chip-value">1st March 2026</span>
-            </div>
-            <div className="event-separator" />
-            <div className="event-chip">
-              <span className="event-chip-label">Venue</span>
-              <span className="event-chip-value">Sector-10, Rohini</span>
-            </div>
-          </div>
-
-          <div className="divider" />
-
-
 
           {/* Status */}
           <div className="status-bar">
