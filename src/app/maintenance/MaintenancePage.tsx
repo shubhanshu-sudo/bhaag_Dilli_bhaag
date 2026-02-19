@@ -242,71 +242,6 @@ export default function MaintenancePage() {
           background: rgba(139, 92, 246, 0.2);
         }
 
-        /* Countdown Section */
-        .countdown-section {
-          background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(236, 72, 153, 0.05));
-          border: 1px solid rgba(139, 92, 246, 0.12);
-          border-radius: 1.25rem;
-          padding: 1.75rem 1.5rem;
-          margin-bottom: 2rem;
-        }
-
-        .countdown-label {
-          font-size: 0.75rem;
-          font-weight: 600;
-          color: #7c3aed;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          margin-bottom: 1.25rem;
-        }
-
-        .countdown-grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.75rem;
-          flex-wrap: wrap;
-        }
-
-        .countdown-unit {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.3rem;
-          min-width: 70px;
-        }
-
-        .countdown-number {
-          font-size: clamp(2rem, 5vw, 2.5rem);
-          font-weight: 800;
-          color: #1a1a2e;
-          line-height: 1;
-          font-variant-numeric: tabular-nums;
-          background: linear-gradient(135deg, #7c3aed, #ec4899);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          min-width: 2.5ch;
-          text-align: center;
-        }
-
-        .countdown-unit-label {
-          font-size: 0.65rem;
-          font-weight: 600;
-          color: #94a3b8;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-        }
-
-        .countdown-colon {
-          font-size: 2rem;
-          font-weight: 700;
-          color: rgba(139, 92, 246, 0.3);
-          line-height: 1;
-          margin-bottom: 1.2rem;
-          animation: blink 1s step-end infinite;
-        }
-
         .status-bar {
           display: flex;
           align-items: center;
@@ -340,19 +275,12 @@ export default function MaintenancePage() {
           .event-separator {
             display: none;
           }
-          .countdown-unit {
-            min-width: 55px;
+          .event-separator {
+            display: none;
           }
         }
 
-        @media (max-width: 380px) {
-          .countdown-grid {
-            gap: 0.4rem;
-          }
-          .countdown-colon {
-            font-size: 1.5rem;
-          }
-        }
+
 
         .image-container {
           margin: 1.5rem 0;
@@ -432,39 +360,7 @@ export default function MaintenancePage() {
 
           <div className="divider" />
 
-          {/* Countdown Section */}
-          <div className="countdown-section">
-            <p className="countdown-label">⏳ Event Countdown</p>
-            <div className="countdown-grid">
-              <div className="countdown-unit">
-                <span className="countdown-number">
-                  {mounted ? String(timeLeft.days).padStart(2, '0') : '--'}
-                </span>
-                <span className="countdown-unit-label">Days</span>
-              </div>
-              <span className="countdown-colon">:</span>
-              <div className="countdown-unit">
-                <span className="countdown-number">
-                  {mounted ? String(timeLeft.hours).padStart(2, '0') : '--'}
-                </span>
-                <span className="countdown-unit-label">Hours</span>
-              </div>
-              <span className="countdown-colon">:</span>
-              <div className="countdown-unit">
-                <span className="countdown-number">
-                  {mounted ? String(timeLeft.minutes).padStart(2, '0') : '--'}
-                </span>
-                <span className="countdown-unit-label">Minutes</span>
-              </div>
-              <span className="countdown-colon">:</span>
-              <div className="countdown-unit">
-                <span className="countdown-number">
-                  {mounted ? String(timeLeft.seconds).padStart(2, '0') : '--'}
-                </span>
-                <span className="countdown-unit-label">Seconds</span>
-              </div>
-            </div>
-          </div>
+
 
           {/* Status */}
           <div className="status-bar">
